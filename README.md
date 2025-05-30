@@ -62,7 +62,7 @@ cd zkDev
 # Install dependencies
 yarn install
 
-# Set up environment variables
+# Set up environment variables (NOT NEEDED YET)
 cp packages/nextjs/.env.example packages/nextjs/.env.local
 cp packages/express/.env.example packages/express/.env
 
@@ -72,7 +72,20 @@ cp packages/express/.env.example packages/express/.env
 ### Running the Development Environment
 
 ```bash
-# Start the backend server
+# Start local Ethereum network
+yarn chain
+
+# deploy template contracts
+yarn deploy
+
+# In a separate terminal, start the frontend
+yarn start
+```
+
+
+
+```bash
+# Start the backend server (NOT NEEDED)
 yarn api:dev
 
 # In a separate terminal, start the frontend
