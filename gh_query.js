@@ -154,6 +154,42 @@ async function getFileContent(repoFullName, fileSha) {
   return "";
 }
 
+async function getCommitCount(repoFullName, branch, username) {
+  // Build the URL for commits on the branch, optionally filtered by author
+  let url = `https://api.github.com/repos/${repoFullName}/commits?sha=${branch}&per_page=1`;
+  if (username) url += `&author=${username}`;
+
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${GITHUB_TOKEN}`,
+      Accept: "application/vnd.github.v3+json",
+    },
+  });
+
+  if (!res.ok) {
+    if (res.status === 409) return 0; // Empty branch
+    throw new Error(`Failed to fetch commits: ${res.status}`);
+  }
+
+  // Check for pagination
+  const link = res.headers.get("link");
+  if (!link) {
+    // Only one page, check if there is a commit
+    const data = await res.json();
+    return data.length;
+  }
+
+  // Parse the 'last' page number from the Link header
+  const match = link.match(/&page=(\d+)>; rel="last"/);
+  if (match) {
+    return parseInt(match[1], 10);
+  } else {
+    // Fallback: only one page
+    const data = await res.json();
+    return data.length;
+  }
+}
+
 async function countLinesInRepo(repoFullName, branch) {
   try {
     console.log(
