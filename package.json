@@ -50,8 +50,7 @@
     "verify": "yarn foundry:verify",
     "api:dev": "yarn workspace @se-2/express dev",
     "api:build": "yarn workspace @se-2/express build",
-    "api:start": "yarn workspace @se-2/express start",
-    "api:lint": "yarn workspace @se-2/express lint"
+    "api:start": "yarn workspace @se-2/express start"
   },
   "devDependencies": {
     "husky": "~9.1.6",
