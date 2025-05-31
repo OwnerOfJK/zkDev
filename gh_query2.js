@@ -83,8 +83,12 @@ async function getCommitCountForRepo(owner, repo, username) {
 
 (async () => {
   const repos = await getReposWithCommitsByUser(GITHUB_USER);
-  console.log("Repos with commits by", GITHUB_USER + ":");
-  for (const [id, name] of repos.entries()) {
+  logBoth("Repos with commits by " + GITHUB_USER + ":");
+  // Sort repos by name alphabetically
+  const sortedRepos = Array.from(repos.entries()).sort((a, b) =>
+    a[1].localeCompare(b[1])
+  );
+  for (const [id, name] of sortedRepos) {
     // Get owner from repo API (need to fetch full repo info)
     const repoUrl = `https://api.github.com/repositories/${id}`;
     apiRequestCount++;
@@ -120,11 +124,6 @@ async function getCommitCountForRepo(owner, repo, username) {
       // ignore errors for views
     }
 
-    console.log(
-      `ID: ${id}, Name: ${name}, Commits by ${GITHUB_USER}: ${commitCount}, Stars: ${stars}, Forks: ${forks}, Views: ${
-        views !== null ? views : "N/A"
-      }`
-    );
     logBoth(
       `ID: ${id}, Name: ${name}, Commits by ${GITHUB_USER}: ${commitCount}, Stars: ${stars}, Forks: ${forks}, Views: ${
         views !== null ? views : "N/A"
