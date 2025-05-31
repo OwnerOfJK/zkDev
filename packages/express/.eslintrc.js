@@ -8,6 +8,9 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // Custom rules here
+    '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-namespace': 'error',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 };
