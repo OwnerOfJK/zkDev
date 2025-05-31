@@ -1,0 +1,1470 @@
+Repos with commits by mrizhakov:
+Total API requests made: 1
+Repos with commits by mrizhakov:
+Total API requests made: 1
+Repos with commits by mrizhakov:
+Total API requests made: 1
+Repos with commits by mrizhakov:
+Total API requests made: 1
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos with commits by mrizhakov:
+Total API requests made: 2
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+Repos with commits by mrizhakov:
+Total API requests made: 2
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+Repos with commits by mrizhakov:
+Total API requests made: 2
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+Repos with commits by mrizhakov:
+Total API requests made: 2
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+Repos with commits by mrizhakov:
+Total API requests made: 2
+API response (getGitlabUserId): [
+  {
+    "id": 28221583,
+    "username": "mrizhakov",
+    "public_email": null,
+    "name": "Michael Rizhakov",
+    "state": "active",
+    "locked": false,
+    "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+    "web_url": "https://gitlab.com/mrizhakov"
+  }
+]
+User 'mrizhakov' found on GitLab (id: 28221583).
+API response (getReposWithCommitsByUser, page 1): [
+  {
+    "id": 4312858203,
+    "project_id": 70383346,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:57:24.109Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "3266023cbe88073cf01256482c85a137325b9dca",
+      "commit_to": "71b455212631144aced5c95e3666e2f54274d76d",
+      "ref": "main",
+      "commit_title": "Add new file",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312858054,
+    "project_id": 70383346,
+    "action_name": "pushed new",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:56:59.396Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "created",
+      "ref_type": "branch",
+      "commit_from": null,
+      "commit_to": "3266023cbe88073cf01256482c85a137325b9dca",
+      "ref": "main",
+      "commit_title": "Initial commit",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312857066,
+    "project_id": 70383042,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:54:44.629Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "70e3be6860b16a1ba3308954b2e8bbd4f246d6e4",
+      "commit_to": "36f93e94ad284e1cd7c3aa97209135b806011c49",
+      "ref": "main",
+      "commit_title": "Test repo",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312848369,
+    "project_id": 70383042,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:37:48.019Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "8be1cb137bac9b9aca608541a0b4382fab69e74b",
+      "commit_to": "70e3be6860b16a1ba3308954b2e8bbd4f246d6e4",
+      "ref": "main",
+      "commit_title": "Add new file",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312848249,
+    "project_id": 70383042,
+    "action_name": "pushed new",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:37:30.250Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "created",
+      "ref_type": "branch",
+      "commit_from": null,
+      "commit_to": "8be1cb137bac9b9aca608541a0b4382fab69e74b",
+      "ref": "main",
+      "commit_title": "Initial commit",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312847395,
+    "project_id": 70382981,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:35:33.732Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "451d11f8285b8a43cd344674bee085149f97724b",
+      "commit_to": "55a3fcbcb5cc3a2e401414b27d48cf8be5b422ae",
+      "ref": "master",
+      "commit_title": "Add new file",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  }
+]
+Repos identified for user 'mrizhakov':
+Repos with commits by mrizhakov:
+Total API requests made: 2
+API response (getGitlabUserId): [
+  {
+    "id": 28221583,
+    "username": "mrizhakov",
+    "public_email": null,
+    "name": "Michael Rizhakov",
+    "state": "active",
+    "locked": false,
+    "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+    "web_url": "https://gitlab.com/mrizhakov"
+  }
+]
+User 'mrizhakov' found on GitLab (id: 28221583).
+API response (getReposWithCommitsByUser, page 1): [
+  {
+    "id": 4312858203,
+    "project_id": 70383346,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:57:24.109Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "3266023cbe88073cf01256482c85a137325b9dca",
+      "commit_to": "71b455212631144aced5c95e3666e2f54274d76d",
+      "ref": "main",
+      "commit_title": "Add new file",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312858054,
+    "project_id": 70383346,
+    "action_name": "pushed new",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:56:59.396Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "created",
+      "ref_type": "branch",
+      "commit_from": null,
+      "commit_to": "3266023cbe88073cf01256482c85a137325b9dca",
+      "ref": "main",
+      "commit_title": "Initial commit",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312857066,
+    "project_id": 70383042,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:54:44.629Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "70e3be6860b16a1ba3308954b2e8bbd4f246d6e4",
+      "commit_to": "36f93e94ad284e1cd7c3aa97209135b806011c49",
+      "ref": "main",
+      "commit_title": "Test repo",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312848369,
+    "project_id": 70383042,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:37:48.019Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "8be1cb137bac9b9aca608541a0b4382fab69e74b",
+      "commit_to": "70e3be6860b16a1ba3308954b2e8bbd4f246d6e4",
+      "ref": "main",
+      "commit_title": "Add new file",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312848249,
+    "project_id": 70383042,
+    "action_name": "pushed new",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:37:30.250Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "created",
+      "ref_type": "branch",
+      "commit_from": null,
+      "commit_to": "8be1cb137bac9b9aca608541a0b4382fab69e74b",
+      "ref": "main",
+      "commit_title": "Initial commit",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  },
+  {
+    "id": 4312847395,
+    "project_id": 70382981,
+    "action_name": "pushed to",
+    "target_id": null,
+    "target_iid": null,
+    "target_type": null,
+    "author_id": 28221583,
+    "target_title": null,
+    "created_at": "2025-05-31T18:35:33.732Z",
+    "author": {
+      "id": 28221583,
+      "username": "mrizhakov",
+      "public_email": null,
+      "name": "Michael Rizhakov",
+      "state": "active",
+      "locked": false,
+      "avatar_url": "https://secure.gravatar.com/avatar/8ccb2b6030fca5b5cbc8580e42d2540ff333d21f9a924f7fc5393b71d9a74551?s=80&d=identicon",
+      "web_url": "https://gitlab.com/mrizhakov"
+    },
+    "imported": false,
+    "imported_from": "none",
+    "push_data": {
+      "commit_count": 1,
+      "action": "pushed",
+      "ref_type": "branch",
+      "commit_from": "451d11f8285b8a43cd344674bee085149f97724b",
+      "commit_to": "55a3fcbcb5cc3a2e401414b27d48cf8be5b422ae",
+      "ref": "master",
+      "commit_title": "Add new file",
+      "ref_count": null
+    },
+    "author_username": "mrizhakov"
+  }
+]
+API response (getProjectInfo, project 70383346): {
+  "id": 70383346,
+  "description": null,
+  "name": "One more test",
+  "name_with_namespace": "test-group / One more test",
+  "path": "one-more-test",
+  "path_with_namespace": "test-group8722922/one-more-test",
+  "created_at": "2025-05-31T18:56:57.986Z",
+  "default_branch": "main",
+  "tag_list": [],
+  "topics": [],
+  "ssh_url_to_repo": "git@gitlab.com:test-group8722922/one-more-test.git",
+  "http_url_to_repo": "https://gitlab.com/test-group8722922/one-more-test.git",
+  "web_url": "https://gitlab.com/test-group8722922/one-more-test",
+  "readme_url": "https://gitlab.com/test-group8722922/one-more-test/-/blob/main/README.md",
+  "forks_count": 0,
+  "avatar_url": null,
+  "star_count": 0,
+  "last_activity_at": "2025-05-31T18:56:57.919Z",
+  "namespace": {
+    "id": 108558043,
+    "name": "test-group",
+    "path": "test-group8722922",
+    "kind": "group",
+    "full_path": "test-group8722922",
+    "parent_id": null,
+    "avatar_url": null,
+    "web_url": "https://gitlab.com/groups/test-group8722922"
+  },
+  "container_registry_image_prefix": "registry.gitlab.com/test-group8722922/one-more-test",
+  "_links": {
+    "self": "https://gitlab.com/api/v4/projects/70383346",
+    "issues": "https://gitlab.com/api/v4/projects/70383346/issues",
+    "merge_requests": "https://gitlab.com/api/v4/projects/70383346/merge_requests",
+    "repo_branches": "https://gitlab.com/api/v4/projects/70383346/repository/branches",
+    "labels": "https://gitlab.com/api/v4/projects/70383346/labels",
+    "events": "https://gitlab.com/api/v4/projects/70383346/events",
+    "members": "https://gitlab.com/api/v4/projects/70383346/members",
+    "cluster_agents": "https://gitlab.com/api/v4/projects/70383346/cluster_agents"
+  },
+  "marked_for_deletion_at": null,
+  "marked_for_deletion_on": null,
+  "packages_enabled": true,
+  "empty_repo": false,
+  "archived": false,
+  "visibility": "private",
+  "resolve_outdated_diff_discussions": false,
+  "container_expiration_policy": {
+    "cadence": "1d",
+    "enabled": false,
+    "keep_n": 10,
+    "older_than": "90d",
+    "name_regex": ".*",
+    "name_regex_keep": null,
+    "next_run_at": "2025-06-01T18:56:57.999Z"
+  },
+  "repository_object_format": "sha1",
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": true,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "container_registry_enabled": true,
+  "service_desk_enabled": true,
+  "service_desk_address": "contact-project+test-group8722922-one-more-test-70383346-issue-@incoming.gitlab.com",
+  "can_create_merge_request_in": true,
+  "issues_access_level": "enabled",
+  "repository_access_level": "enabled",
+  "merge_requests_access_level": "enabled",
+  "forking_access_level": "enabled",
+  "wiki_access_level": "enabled",
+  "builds_access_level": "enabled",
+  "snippets_access_level": "enabled",
+  "pages_access_level": "private",
+  "analytics_access_level": "enabled",
+  "container_registry_access_level": "enabled",
+  "security_and_compliance_access_level": "private",
+  "releases_access_level": "enabled",
+  "environments_access_level": "enabled",
+  "feature_flags_access_level": "enabled",
+  "infrastructure_access_level": "enabled",
+  "monitor_access_level": "enabled",
+  "model_experiments_access_level": "enabled",
+  "model_registry_access_level": "enabled",
+  "emails_disabled": false,
+  "emails_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "creator_id": 28221583,
+  "import_url": null,
+  "import_type": null,
+  "import_status": "none",
+  "import_error": null,
+  "open_issues_count": 0,
+  "description_html": "",
+  "updated_at": "2025-05-31T18:56:59.264Z",
+  "ci_default_git_depth": 20,
+  "ci_delete_pipelines_in_seconds": null,
+  "ci_forward_deployment_enabled": true,
+  "ci_forward_deployment_rollback_allowed": true,
+  "ci_job_token_scope_enabled": false,
+  "ci_separated_caches": true,
+  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+  "ci_id_token_sub_claim_components": [
+    "project_path",
+    "ref_type",
+    "ref"
+  ],
+  "build_git_strategy": "fetch",
+  "keep_latest_artifact": true,
+  "restrict_user_defined_variables": true,
+  "ci_pipeline_variables_minimum_override_role": "no_one_allowed",
+  "runner_token_expiration_interval": null,
+  "group_runners_enabled": true,
+  "auto_cancel_pending_pipelines": "enabled",
+  "build_timeout": 3600,
+  "auto_devops_enabled": false,
+  "auto_devops_deploy_strategy": "continuous",
+  "ci_push_repository_for_job_token_allowed": false,
+  "ci_config_path": "",
+  "public_jobs": true,
+  "shared_with_groups": [],
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "allow_merge_on_skipped_pipeline": null,
+  "request_access_enabled": true,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "remove_source_branch_after_merge": true,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "merge_request_title_regex": null,
+  "squash_option": "default_off",
+  "enforce_auth_checks_on_uploads": true,
+  "suggestion_commit_message": null,
+  "merge_commit_template": null,
+  "squash_commit_template": null,
+  "issue_branch_template": null,
+  "warn_about_potentially_unwanted_characters": true,
+  "autoclose_referenced_issues": true,
+  "max_artifacts_size": null,
+  "external_authorization_classification_label": "",
+  "requirements_enabled": false,
+  "requirements_access_level": "enabled",
+  "security_and_compliance_enabled": true,
+  "compliance_frameworks": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": {
+      "access_level": 50,
+      "notification_level": 3
+    }
+  }
+}
+API response (getProjectInfo, project 70383042): {
+  "id": 70383042,
+  "description": null,
+  "name": "cool_private_project",
+  "name_with_namespace": "test-group / cool_private_project",
+  "path": "cool_private_project",
+  "path_with_namespace": "test-group8722922/cool_private_project",
+  "created_at": "2025-05-31T18:37:28.957Z",
+  "default_branch": "main",
+  "tag_list": [],
+  "topics": [],
+  "ssh_url_to_repo": "git@gitlab.com:test-group8722922/cool_private_project.git",
+  "http_url_to_repo": "https://gitlab.com/test-group8722922/cool_private_project.git",
+  "web_url": "https://gitlab.com/test-group8722922/cool_private_project",
+  "readme_url": "https://gitlab.com/test-group8722922/cool_private_project/-/blob/main/README.md",
+  "forks_count": 0,
+  "avatar_url": null,
+  "star_count": 0,
+  "last_activity_at": "2025-05-31T18:37:28.881Z",
+  "namespace": {
+    "id": 108558043,
+    "name": "test-group",
+    "path": "test-group8722922",
+    "kind": "group",
+    "full_path": "test-group8722922",
+    "parent_id": null,
+    "avatar_url": null,
+    "web_url": "https://gitlab.com/groups/test-group8722922"
+  },
+  "container_registry_image_prefix": "registry.gitlab.com/test-group8722922/cool_private_project",
+  "_links": {
+    "self": "https://gitlab.com/api/v4/projects/70383042",
+    "issues": "https://gitlab.com/api/v4/projects/70383042/issues",
+    "merge_requests": "https://gitlab.com/api/v4/projects/70383042/merge_requests",
+    "repo_branches": "https://gitlab.com/api/v4/projects/70383042/repository/branches",
+    "labels": "https://gitlab.com/api/v4/projects/70383042/labels",
+    "events": "https://gitlab.com/api/v4/projects/70383042/events",
+    "members": "https://gitlab.com/api/v4/projects/70383042/members",
+    "cluster_agents": "https://gitlab.com/api/v4/projects/70383042/cluster_agents"
+  },
+  "marked_for_deletion_at": null,
+  "marked_for_deletion_on": null,
+  "packages_enabled": true,
+  "empty_repo": false,
+  "archived": false,
+  "visibility": "private",
+  "resolve_outdated_diff_discussions": false,
+  "container_expiration_policy": {
+    "cadence": "1d",
+    "enabled": false,
+    "keep_n": 10,
+    "older_than": "90d",
+    "name_regex": ".*",
+    "name_regex_keep": null,
+    "next_run_at": "2025-06-01T18:37:28.975Z"
+  },
+  "repository_object_format": "sha1",
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": true,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "container_registry_enabled": true,
+  "service_desk_enabled": true,
+  "service_desk_address": "contact-project+test-group8722922-cool-private-project-70383042-issue-@incoming.gitlab.com",
+  "can_create_merge_request_in": true,
+  "issues_access_level": "enabled",
+  "repository_access_level": "enabled",
+  "merge_requests_access_level": "enabled",
+  "forking_access_level": "enabled",
+  "wiki_access_level": "enabled",
+  "builds_access_level": "enabled",
+  "snippets_access_level": "enabled",
+  "pages_access_level": "private",
+  "analytics_access_level": "enabled",
+  "container_registry_access_level": "enabled",
+  "security_and_compliance_access_level": "private",
+  "releases_access_level": "enabled",
+  "environments_access_level": "enabled",
+  "feature_flags_access_level": "enabled",
+  "infrastructure_access_level": "enabled",
+  "monitor_access_level": "enabled",
+  "model_experiments_access_level": "enabled",
+  "model_registry_access_level": "enabled",
+  "emails_disabled": false,
+  "emails_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "creator_id": 28221583,
+  "import_url": null,
+  "import_type": null,
+  "import_status": "none",
+  "import_error": null,
+  "open_issues_count": 0,
+  "description_html": "",
+  "updated_at": "2025-05-31T18:54:44.629Z",
+  "ci_default_git_depth": 20,
+  "ci_delete_pipelines_in_seconds": null,
+  "ci_forward_deployment_enabled": true,
+  "ci_forward_deployment_rollback_allowed": true,
+  "ci_job_token_scope_enabled": false,
+  "ci_separated_caches": true,
+  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+  "ci_id_token_sub_claim_components": [
+    "project_path",
+    "ref_type",
+    "ref"
+  ],
+  "build_git_strategy": "fetch",
+  "keep_latest_artifact": true,
+  "restrict_user_defined_variables": true,
+  "ci_pipeline_variables_minimum_override_role": "no_one_allowed",
+  "runner_token_expiration_interval": null,
+  "group_runners_enabled": true,
+  "auto_cancel_pending_pipelines": "enabled",
+  "build_timeout": 3600,
+  "auto_devops_enabled": false,
+  "auto_devops_deploy_strategy": "continuous",
+  "ci_push_repository_for_job_token_allowed": false,
+  "ci_config_path": "",
+  "public_jobs": true,
+  "shared_with_groups": [],
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "allow_merge_on_skipped_pipeline": null,
+  "request_access_enabled": true,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "remove_source_branch_after_merge": true,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "merge_request_title_regex": null,
+  "squash_option": "default_off",
+  "enforce_auth_checks_on_uploads": true,
+  "suggestion_commit_message": null,
+  "merge_commit_template": null,
+  "squash_commit_template": null,
+  "issue_branch_template": null,
+  "warn_about_potentially_unwanted_characters": true,
+  "autoclose_referenced_issues": true,
+  "max_artifacts_size": null,
+  "external_authorization_classification_label": "",
+  "requirements_enabled": false,
+  "requirements_access_level": "enabled",
+  "security_and_compliance_enabled": true,
+  "compliance_frameworks": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": {
+      "access_level": 50,
+      "notification_level": 3
+    }
+  }
+}
+API response (getProjectInfo, project 70382981): {
+  "id": 70382981,
+  "description": null,
+  "name": "test",
+  "name_with_namespace": "test-group / test",
+  "path": "test",
+  "path_with_namespace": "test-group8722922/test",
+  "created_at": "2025-05-31T18:32:03.918Z",
+  "default_branch": "master",
+  "tag_list": [],
+  "topics": [],
+  "ssh_url_to_repo": "git@gitlab.com:test-group8722922/test.git",
+  "http_url_to_repo": "https://gitlab.com/test-group8722922/test.git",
+  "web_url": "https://gitlab.com/test-group8722922/test",
+  "readme_url": "https://gitlab.com/test-group8722922/test/-/blob/master/README.md",
+  "forks_count": 0,
+  "avatar_url": null,
+  "star_count": 0,
+  "last_activity_at": "2025-05-31T18:32:04.777Z",
+  "namespace": {
+    "id": 108558043,
+    "name": "test-group",
+    "path": "test-group8722922",
+    "kind": "group",
+    "full_path": "test-group8722922",
+    "parent_id": null,
+    "avatar_url": null,
+    "web_url": "https://gitlab.com/groups/test-group8722922"
+  },
+  "container_registry_image_prefix": "registry.gitlab.com/test-group8722922/test",
+  "_links": {
+    "self": "https://gitlab.com/api/v4/projects/70382981",
+    "issues": "https://gitlab.com/api/v4/projects/70382981/issues",
+    "merge_requests": "https://gitlab.com/api/v4/projects/70382981/merge_requests",
+    "repo_branches": "https://gitlab.com/api/v4/projects/70382981/repository/branches",
+    "labels": "https://gitlab.com/api/v4/projects/70382981/labels",
+    "events": "https://gitlab.com/api/v4/projects/70382981/events",
+    "members": "https://gitlab.com/api/v4/projects/70382981/members",
+    "cluster_agents": "https://gitlab.com/api/v4/projects/70382981/cluster_agents"
+  },
+  "marked_for_deletion_at": null,
+  "marked_for_deletion_on": null,
+  "packages_enabled": true,
+  "empty_repo": false,
+  "archived": false,
+  "visibility": "private",
+  "resolve_outdated_diff_discussions": false,
+  "container_expiration_policy": {
+    "cadence": "1d",
+    "enabled": false,
+    "keep_n": 10,
+    "older_than": "90d",
+    "name_regex": ".*",
+    "name_regex_keep": null,
+    "next_run_at": "2025-06-01T18:32:04.858Z"
+  },
+  "repository_object_format": "sha1",
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": true,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "container_registry_enabled": true,
+  "service_desk_enabled": false,
+  "service_desk_address": "contact-project+test-group8722922-test-70382981-issue-@incoming.gitlab.com",
+  "can_create_merge_request_in": true,
+  "issues_access_level": "enabled",
+  "repository_access_level": "enabled",
+  "merge_requests_access_level": "enabled",
+  "forking_access_level": "enabled",
+  "wiki_access_level": "enabled",
+  "builds_access_level": "enabled",
+  "snippets_access_level": "enabled",
+  "pages_access_level": "private",
+  "analytics_access_level": "enabled",
+  "container_registry_access_level": "enabled",
+  "security_and_compliance_access_level": "private",
+  "releases_access_level": "enabled",
+  "environments_access_level": "enabled",
+  "feature_flags_access_level": "enabled",
+  "infrastructure_access_level": "enabled",
+  "monitor_access_level": "enabled",
+  "model_experiments_access_level": "enabled",
+  "model_registry_access_level": "enabled",
+  "emails_disabled": false,
+  "emails_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "creator_id": 28221583,
+  "import_url": null,
+  "import_type": "gitlab_project",
+  "import_status": "finished",
+  "import_error": null,
+  "open_issues_count": 0,
+  "description_html": "",
+  "updated_at": "2025-05-31T18:32:05.678Z",
+  "ci_default_git_depth": 20,
+  "ci_delete_pipelines_in_seconds": null,
+  "ci_forward_deployment_enabled": true,
+  "ci_forward_deployment_rollback_allowed": true,
+  "ci_job_token_scope_enabled": false,
+  "ci_separated_caches": true,
+  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+  "ci_id_token_sub_claim_components": [
+    "project_path",
+    "ref_type",
+    "ref"
+  ],
+  "build_git_strategy": "fetch",
+  "keep_latest_artifact": true,
+  "restrict_user_defined_variables": true,
+  "ci_pipeline_variables_minimum_override_role": "no_one_allowed",
+  "runner_token_expiration_interval": null,
+  "group_runners_enabled": true,
+  "auto_cancel_pending_pipelines": "enabled",
+  "build_timeout": 3600,
+  "auto_devops_enabled": false,
+  "auto_devops_deploy_strategy": "continuous",
+  "ci_push_repository_for_job_token_allowed": false,
+  "ci_config_path": "",
+  "public_jobs": true,
+  "shared_with_groups": [],
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "allow_merge_on_skipped_pipeline": null,
+  "request_access_enabled": true,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "remove_source_branch_after_merge": true,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "merge_request_title_regex": null,
+  "squash_option": "default_off",
+  "enforce_auth_checks_on_uploads": true,
+  "suggestion_commit_message": null,
+  "merge_commit_template": null,
+  "squash_commit_template": null,
+  "issue_branch_template": null,
+  "warn_about_potentially_unwanted_characters": true,
+  "autoclose_referenced_issues": true,
+  "max_artifacts_size": null,
+  "external_authorization_classification_label": "",
+  "requirements_enabled": false,
+  "requirements_access_level": "enabled",
+  "security_and_compliance_enabled": true,
+  "compliance_frameworks": [],
+  "permissions": {
+    "project_access": {
+      "access_level": 40,
+      "notification_level": 3
+    },
+    "group_access": {
+      "access_level": 50,
+      "notification_level": 3
+    }
+  }
+}
+Repos identified for user 'mrizhakov':
+  ID: 70383346, Name: One more test
+  ID: 70383042, Name: cool_private_project
+  ID: 70382981, Name: test
+Repos with commits by mrizhakov:
+API response (getProjectInfo, project 70383042): {
+  "id": 70383042,
+  "description": null,
+  "name": "cool_private_project",
+  "name_with_namespace": "test-group / cool_private_project",
+  "path": "cool_private_project",
+  "path_with_namespace": "test-group8722922/cool_private_project",
+  "created_at": "2025-05-31T18:37:28.957Z",
+  "default_branch": "main",
+  "tag_list": [],
+  "topics": [],
+  "ssh_url_to_repo": "git@gitlab.com:test-group8722922/cool_private_project.git",
+  "http_url_to_repo": "https://gitlab.com/test-group8722922/cool_private_project.git",
+  "web_url": "https://gitlab.com/test-group8722922/cool_private_project",
+  "readme_url": "https://gitlab.com/test-group8722922/cool_private_project/-/blob/main/README.md",
+  "forks_count": 0,
+  "avatar_url": null,
+  "star_count": 0,
+  "last_activity_at": "2025-05-31T18:37:28.881Z",
+  "namespace": {
+    "id": 108558043,
+    "name": "test-group",
+    "path": "test-group8722922",
+    "kind": "group",
+    "full_path": "test-group8722922",
+    "parent_id": null,
+    "avatar_url": null,
+    "web_url": "https://gitlab.com/groups/test-group8722922"
+  },
+  "container_registry_image_prefix": "registry.gitlab.com/test-group8722922/cool_private_project",
+  "_links": {
+    "self": "https://gitlab.com/api/v4/projects/70383042",
+    "issues": "https://gitlab.com/api/v4/projects/70383042/issues",
+    "merge_requests": "https://gitlab.com/api/v4/projects/70383042/merge_requests",
+    "repo_branches": "https://gitlab.com/api/v4/projects/70383042/repository/branches",
+    "labels": "https://gitlab.com/api/v4/projects/70383042/labels",
+    "events": "https://gitlab.com/api/v4/projects/70383042/events",
+    "members": "https://gitlab.com/api/v4/projects/70383042/members",
+    "cluster_agents": "https://gitlab.com/api/v4/projects/70383042/cluster_agents"
+  },
+  "marked_for_deletion_at": null,
+  "marked_for_deletion_on": null,
+  "packages_enabled": true,
+  "empty_repo": false,
+  "archived": false,
+  "visibility": "private",
+  "resolve_outdated_diff_discussions": false,
+  "container_expiration_policy": {
+    "cadence": "1d",
+    "enabled": false,
+    "keep_n": 10,
+    "older_than": "90d",
+    "name_regex": ".*",
+    "name_regex_keep": null,
+    "next_run_at": "2025-06-01T18:37:28.975Z"
+  },
+  "repository_object_format": "sha1",
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": true,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "container_registry_enabled": true,
+  "service_desk_enabled": true,
+  "service_desk_address": "contact-project+test-group8722922-cool-private-project-70383042-issue-@incoming.gitlab.com",
+  "can_create_merge_request_in": true,
+  "issues_access_level": "enabled",
+  "repository_access_level": "enabled",
+  "merge_requests_access_level": "enabled",
+  "forking_access_level": "enabled",
+  "wiki_access_level": "enabled",
+  "builds_access_level": "enabled",
+  "snippets_access_level": "enabled",
+  "pages_access_level": "private",
+  "analytics_access_level": "enabled",
+  "container_registry_access_level": "enabled",
+  "security_and_compliance_access_level": "private",
+  "releases_access_level": "enabled",
+  "environments_access_level": "enabled",
+  "feature_flags_access_level": "enabled",
+  "infrastructure_access_level": "enabled",
+  "monitor_access_level": "enabled",
+  "model_experiments_access_level": "enabled",
+  "model_registry_access_level": "enabled",
+  "emails_disabled": false,
+  "emails_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "creator_id": 28221583,
+  "import_url": null,
+  "import_type": null,
+  "import_status": "none",
+  "import_error": null,
+  "open_issues_count": 0,
+  "description_html": "",
+  "updated_at": "2025-05-31T18:54:44.629Z",
+  "ci_default_git_depth": 20,
+  "ci_delete_pipelines_in_seconds": null,
+  "ci_forward_deployment_enabled": true,
+  "ci_forward_deployment_rollback_allowed": true,
+  "ci_job_token_scope_enabled": false,
+  "ci_separated_caches": true,
+  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+  "ci_id_token_sub_claim_components": [
+    "project_path",
+    "ref_type",
+    "ref"
+  ],
+  "build_git_strategy": "fetch",
+  "keep_latest_artifact": true,
+  "restrict_user_defined_variables": true,
+  "ci_pipeline_variables_minimum_override_role": "no_one_allowed",
+  "runner_token_expiration_interval": null,
+  "group_runners_enabled": true,
+  "auto_cancel_pending_pipelines": "enabled",
+  "build_timeout": 3600,
+  "auto_devops_enabled": false,
+  "auto_devops_deploy_strategy": "continuous",
+  "ci_push_repository_for_job_token_allowed": false,
+  "ci_config_path": "",
+  "public_jobs": true,
+  "shared_with_groups": [],
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "allow_merge_on_skipped_pipeline": null,
+  "request_access_enabled": true,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "remove_source_branch_after_merge": true,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "merge_request_title_regex": null,
+  "squash_option": "default_off",
+  "enforce_auth_checks_on_uploads": true,
+  "suggestion_commit_message": null,
+  "merge_commit_template": null,
+  "squash_commit_template": null,
+  "issue_branch_template": null,
+  "warn_about_potentially_unwanted_characters": true,
+  "autoclose_referenced_issues": true,
+  "max_artifacts_size": null,
+  "external_authorization_classification_label": "",
+  "requirements_enabled": false,
+  "requirements_access_level": "enabled",
+  "security_and_compliance_enabled": true,
+  "compliance_frameworks": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": {
+      "access_level": 50,
+      "notification_level": 3
+    }
+  }
+}
+API response (getCommitCountForRepo, project 70383042, page 1): []
+ID: 70383042, Name: cool_private_project, Commits by mrizhakov: 0, Stars: 0, Forks: 0, Views: N/A
+API response (getProjectInfo, project 70383346): {
+  "id": 70383346,
+  "description": null,
+  "name": "One more test",
+  "name_with_namespace": "test-group / One more test",
+  "path": "one-more-test",
+  "path_with_namespace": "test-group8722922/one-more-test",
+  "created_at": "2025-05-31T18:56:57.986Z",
+  "default_branch": "main",
+  "tag_list": [],
+  "topics": [],
+  "ssh_url_to_repo": "git@gitlab.com:test-group8722922/one-more-test.git",
+  "http_url_to_repo": "https://gitlab.com/test-group8722922/one-more-test.git",
+  "web_url": "https://gitlab.com/test-group8722922/one-more-test",
+  "readme_url": "https://gitlab.com/test-group8722922/one-more-test/-/blob/main/README.md",
+  "forks_count": 0,
+  "avatar_url": null,
+  "star_count": 0,
+  "last_activity_at": "2025-05-31T18:56:57.919Z",
+  "namespace": {
+    "id": 108558043,
+    "name": "test-group",
+    "path": "test-group8722922",
+    "kind": "group",
+    "full_path": "test-group8722922",
+    "parent_id": null,
+    "avatar_url": null,
+    "web_url": "https://gitlab.com/groups/test-group8722922"
+  },
+  "container_registry_image_prefix": "registry.gitlab.com/test-group8722922/one-more-test",
+  "_links": {
+    "self": "https://gitlab.com/api/v4/projects/70383346",
+    "issues": "https://gitlab.com/api/v4/projects/70383346/issues",
+    "merge_requests": "https://gitlab.com/api/v4/projects/70383346/merge_requests",
+    "repo_branches": "https://gitlab.com/api/v4/projects/70383346/repository/branches",
+    "labels": "https://gitlab.com/api/v4/projects/70383346/labels",
+    "events": "https://gitlab.com/api/v4/projects/70383346/events",
+    "members": "https://gitlab.com/api/v4/projects/70383346/members",
+    "cluster_agents": "https://gitlab.com/api/v4/projects/70383346/cluster_agents"
+  },
+  "marked_for_deletion_at": null,
+  "marked_for_deletion_on": null,
+  "packages_enabled": true,
+  "empty_repo": false,
+  "archived": false,
+  "visibility": "private",
+  "resolve_outdated_diff_discussions": false,
+  "container_expiration_policy": {
+    "cadence": "1d",
+    "enabled": false,
+    "keep_n": 10,
+    "older_than": "90d",
+    "name_regex": ".*",
+    "name_regex_keep": null,
+    "next_run_at": "2025-06-01T18:56:57.999Z"
+  },
+  "repository_object_format": "sha1",
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": true,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "container_registry_enabled": true,
+  "service_desk_enabled": true,
+  "service_desk_address": "contact-project+test-group8722922-one-more-test-70383346-issue-@incoming.gitlab.com",
+  "can_create_merge_request_in": true,
+  "issues_access_level": "enabled",
+  "repository_access_level": "enabled",
+  "merge_requests_access_level": "enabled",
+  "forking_access_level": "enabled",
+  "wiki_access_level": "enabled",
+  "builds_access_level": "enabled",
+  "snippets_access_level": "enabled",
+  "pages_access_level": "private",
+  "analytics_access_level": "enabled",
+  "container_registry_access_level": "enabled",
+  "security_and_compliance_access_level": "private",
+  "releases_access_level": "enabled",
+  "environments_access_level": "enabled",
+  "feature_flags_access_level": "enabled",
+  "infrastructure_access_level": "enabled",
+  "monitor_access_level": "enabled",
+  "model_experiments_access_level": "enabled",
+  "model_registry_access_level": "enabled",
+  "emails_disabled": false,
+  "emails_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "creator_id": 28221583,
+  "import_url": null,
+  "import_type": null,
+  "import_status": "none",
+  "import_error": null,
+  "open_issues_count": 0,
+  "description_html": "",
+  "updated_at": "2025-05-31T18:56:59.264Z",
+  "ci_default_git_depth": 20,
+  "ci_delete_pipelines_in_seconds": null,
+  "ci_forward_deployment_enabled": true,
+  "ci_forward_deployment_rollback_allowed": true,
+  "ci_job_token_scope_enabled": false,
+  "ci_separated_caches": true,
+  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+  "ci_id_token_sub_claim_components": [
+    "project_path",
+    "ref_type",
+    "ref"
+  ],
+  "build_git_strategy": "fetch",
+  "keep_latest_artifact": true,
+  "restrict_user_defined_variables": true,
+  "ci_pipeline_variables_minimum_override_role": "no_one_allowed",
+  "runner_token_expiration_interval": null,
+  "group_runners_enabled": true,
+  "auto_cancel_pending_pipelines": "enabled",
+  "build_timeout": 3600,
+  "auto_devops_enabled": false,
+  "auto_devops_deploy_strategy": "continuous",
+  "ci_push_repository_for_job_token_allowed": false,
+  "ci_config_path": "",
+  "public_jobs": true,
+  "shared_with_groups": [],
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "allow_merge_on_skipped_pipeline": null,
+  "request_access_enabled": true,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "remove_source_branch_after_merge": true,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "merge_request_title_regex": null,
+  "squash_option": "default_off",
+  "enforce_auth_checks_on_uploads": true,
+  "suggestion_commit_message": null,
+  "merge_commit_template": null,
+  "squash_commit_template": null,
+  "issue_branch_template": null,
+  "warn_about_potentially_unwanted_characters": true,
+  "autoclose_referenced_issues": true,
+  "max_artifacts_size": null,
+  "external_authorization_classification_label": "",
+  "requirements_enabled": false,
+  "requirements_access_level": "enabled",
+  "security_and_compliance_enabled": true,
+  "compliance_frameworks": [],
+  "permissions": {
+    "project_access": null,
+    "group_access": {
+      "access_level": 50,
+      "notification_level": 3
+    }
+  }
+}
+API response (getCommitCountForRepo, project 70383346, page 1): []
+ID: 70383346, Name: One more test, Commits by mrizhakov: 0, Stars: 0, Forks: 0, Views: N/A
+API response (getProjectInfo, project 70382981): {
+  "id": 70382981,
+  "description": null,
+  "name": "test",
+  "name_with_namespace": "test-group / test",
+  "path": "test",
+  "path_with_namespace": "test-group8722922/test",
+  "created_at": "2025-05-31T18:32:03.918Z",
+  "default_branch": "master",
+  "tag_list": [],
+  "topics": [],
+  "ssh_url_to_repo": "git@gitlab.com:test-group8722922/test.git",
+  "http_url_to_repo": "https://gitlab.com/test-group8722922/test.git",
+  "web_url": "https://gitlab.com/test-group8722922/test",
+  "readme_url": "https://gitlab.com/test-group8722922/test/-/blob/master/README.md",
+  "forks_count": 0,
+  "avatar_url": null,
+  "star_count": 0,
+  "last_activity_at": "2025-05-31T18:32:04.777Z",
+  "namespace": {
+    "id": 108558043,
+    "name": "test-group",
+    "path": "test-group8722922",
+    "kind": "group",
+    "full_path": "test-group8722922",
+    "parent_id": null,
+    "avatar_url": null,
+    "web_url": "https://gitlab.com/groups/test-group8722922"
+  },
+  "container_registry_image_prefix": "registry.gitlab.com/test-group8722922/test",
+  "_links": {
+    "self": "https://gitlab.com/api/v4/projects/70382981",
+    "issues": "https://gitlab.com/api/v4/projects/70382981/issues",
+    "merge_requests": "https://gitlab.com/api/v4/projects/70382981/merge_requests",
+    "repo_branches": "https://gitlab.com/api/v4/projects/70382981/repository/branches",
+    "labels": "https://gitlab.com/api/v4/projects/70382981/labels",
+    "events": "https://gitlab.com/api/v4/projects/70382981/events",
+    "members": "https://gitlab.com/api/v4/projects/70382981/members",
+    "cluster_agents": "https://gitlab.com/api/v4/projects/70382981/cluster_agents"
+  },
+  "marked_for_deletion_at": null,
+  "marked_for_deletion_on": null,
+  "packages_enabled": true,
+  "empty_repo": false,
+  "archived": false,
+  "visibility": "private",
+  "resolve_outdated_diff_discussions": false,
+  "container_expiration_policy": {
+    "cadence": "1d",
+    "enabled": false,
+    "keep_n": 10,
+    "older_than": "90d",
+    "name_regex": ".*",
+    "name_regex_keep": null,
+    "next_run_at": "2025-06-01T18:32:04.858Z"
+  },
+  "repository_object_format": "sha1",
+  "issues_enabled": true,
+  "merge_requests_enabled": true,
+  "wiki_enabled": true,
+  "jobs_enabled": true,
+  "snippets_enabled": true,
+  "container_registry_enabled": true,
+  "service_desk_enabled": false,
+  "service_desk_address": "contact-project+test-group8722922-test-70382981-issue-@incoming.gitlab.com",
+  "can_create_merge_request_in": true,
+  "issues_access_level": "enabled",
+  "repository_access_level": "enabled",
+  "merge_requests_access_level": "enabled",
+  "forking_access_level": "enabled",
+  "wiki_access_level": "enabled",
+  "builds_access_level": "enabled",
+  "snippets_access_level": "enabled",
+  "pages_access_level": "private",
+  "analytics_access_level": "enabled",
+  "container_registry_access_level": "enabled",
+  "security_and_compliance_access_level": "private",
+  "releases_access_level": "enabled",
+  "environments_access_level": "enabled",
+  "feature_flags_access_level": "enabled",
+  "infrastructure_access_level": "enabled",
+  "monitor_access_level": "enabled",
+  "model_experiments_access_level": "enabled",
+  "model_registry_access_level": "enabled",
+  "emails_disabled": false,
+  "emails_enabled": true,
+  "shared_runners_enabled": true,
+  "lfs_enabled": true,
+  "creator_id": 28221583,
+  "import_url": null,
+  "import_type": "gitlab_project",
+  "import_status": "finished",
+  "import_error": null,
+  "open_issues_count": 0,
+  "description_html": "",
+  "updated_at": "2025-05-31T18:32:05.678Z",
+  "ci_default_git_depth": 20,
+  "ci_delete_pipelines_in_seconds": null,
+  "ci_forward_deployment_enabled": true,
+  "ci_forward_deployment_rollback_allowed": true,
+  "ci_job_token_scope_enabled": false,
+  "ci_separated_caches": true,
+  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+  "ci_id_token_sub_claim_components": [
+    "project_path",
+    "ref_type",
+    "ref"
+  ],
+  "build_git_strategy": "fetch",
+  "keep_latest_artifact": true,
+  "restrict_user_defined_variables": true,
+  "ci_pipeline_variables_minimum_override_role": "no_one_allowed",
+  "runner_token_expiration_interval": null,
+  "group_runners_enabled": true,
+  "auto_cancel_pending_pipelines": "enabled",
+  "build_timeout": 3600,
+  "auto_devops_enabled": false,
+  "auto_devops_deploy_strategy": "continuous",
+  "ci_push_repository_for_job_token_allowed": false,
+  "ci_config_path": "",
+  "public_jobs": true,
+  "shared_with_groups": [],
+  "only_allow_merge_if_pipeline_succeeds": false,
+  "allow_merge_on_skipped_pipeline": null,
+  "request_access_enabled": true,
+  "only_allow_merge_if_all_discussions_are_resolved": false,
+  "remove_source_branch_after_merge": true,
+  "printing_merge_request_link_enabled": true,
+  "merge_method": "merge",
+  "merge_request_title_regex": null,
+  "squash_option": "default_off",
+  "enforce_auth_checks_on_uploads": true,
+  "suggestion_commit_message": null,
+  "merge_commit_template": null,
+  "squash_commit_template": null,
+  "issue_branch_template": null,
+  "warn_about_potentially_unwanted_characters": true,
+  "autoclose_referenced_issues": true,
+  "max_artifacts_size": null,
+  "external_authorization_classification_label": "",
+  "requirements_enabled": false,
+  "requirements_access_level": "enabled",
+  "security_and_compliance_enabled": true,
+  "compliance_frameworks": [],
+  "permissions": {
+    "project_access": {
+      "access_level": 40,
+      "notification_level": 3
+    },
+    "group_access": {
+      "access_level": 50,
+      "notification_level": 3
+    }
+  }
+}
+API response (getCommitCountForRepo, project 70382981, page 1): []
+ID: 70382981, Name: test, Commits by mrizhakov: 0, Stars: 0, Forks: 0, Views: N/A
+Total API requests made: 11
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+  ID: 70383346, Name: One more test
+  ID: 70383042, Name: cool_private_project
+  ID: 70382981, Name: test
+Repos with commits by mrizhakov:
+ID: 70383042, Name: cool_private_project, Commits by mrizhakov: 0, Stars: 0, Forks: 0, Views: N/A
+ID: 70383346, Name: One more test, Commits by mrizhakov: 0, Stars: 0, Forks: 0, Views: N/A
+ID: 70382981, Name: test, Commits by mrizhakov: 0, Stars: 0, Forks: 0, Views: N/A
+Total API requests made: 11
+User 'mrizhakov1' not found on GitLab.
+Aborting: user not found.
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+  ID: 70383346, Name: One more test
+  ID: 70383042, Name: cool_private_project
+  ID: 70382981, Name: test
+Repos with commits by mrizhakov:
+ID: 70383042, Name: cool_private_project, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70383346, Name: One more test, Commits by Michael Rizhakov: 2, Stars: 0, Forks: 0, Views: N/A
+ID: 70382981, Name: test, Commits by Michael Rizhakov: 1, Stars: 0, Forks: 0, Views: N/A
+Total API requests made: 11
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+  ID: 70383346, Name: One more test
+  ID: 70383042, Name: cool_private_project
+  ID: 70382981, Name: test
+Repos with commits by mrizhakov:
+ID: 70383042, Name: cool_private_project, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70383346, Name: One more test, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70382981, Name: test, Commits by Michael Rizhakov: 1, Stars: 0, Forks: 0, Views: N/A
+Total API requests made: 11
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+  ID: 70383587, Name: Test Test
+  ID: 70383346, Name: One more test
+  ID: 70383042, Name: cool_private_project
+  ID: 70382981, Name: test
+Repos with commits by mrizhakov:
+ID: 70383042, Name: cool_private_project, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70383346, Name: One more test, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70382981, Name: test, Commits by Michael Rizhakov: 1, Stars: 0, Forks: 0, Views: N/A
+ID: 70383587, Name: Test Test, Commits by Michael Rizhakov: 2, Stars: 0, Forks: 0, Views: N/A
+Total API requests made: 14
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+  ID: 70383628, Name: test3
+  ID: 70383587, Name: Test Test
+  ID: 70383346, Name: One more test
+  ID: 70383042, Name: cool_private_project
+  ID: 70382981, Name: test
+Repos with commits by mrizhakov:
+ID: 70383042, Name: cool_private_project, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70383346, Name: One more test, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70382981, Name: test, Commits by Michael Rizhakov: 1, Stars: 0, Forks: 0, Views: N/A
+ID: 70383587, Name: Test Test, Commits by Michael Rizhakov: 2, Stars: 0, Forks: 0, Views: N/A
+ID: 70383628, Name: test3, Commits by Michael Rizhakov: 2, Stars: 0, Forks: 0, Views: N/A
+Total API requests made: 17
+User 'mrizhakov' found on GitLab (id: 28221583).
+Repos identified for user 'mrizhakov':
+  ID: 70383628, Name: test3
+  ID: 70383587, Name: Test Test
+  ID: 70383346, Name: One more test
+  ID: 70383042, Name: cool_private_project
+  ID: 70382981, Name: test
+Repos with commits by mrizhakov:
+ID: 70383042, Name: cool_private_project, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70383346, Name: One more test, Commits by Michael Rizhakov: 3, Stars: 0, Forks: 0, Views: N/A
+ID: 70382981, Name: test, Commits by Michael Rizhakov: 1, Stars: 0, Forks: 0, Views: N/A
+ID: 70383587, Name: Test Test, Commits by Michael Rizhakov: 2, Stars: 0, Forks: 0, Views: N/A
+ID: 70383628, Name: test3, Commits by Michael Rizhakov: 2, Stars: 0, Forks: 0, Views: N/A
+Total API requests made: 17
