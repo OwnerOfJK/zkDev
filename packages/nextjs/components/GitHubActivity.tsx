@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { WebProof } from "./WebProof";
 
 interface GitHubActivity {
   commits: Array<{
@@ -118,6 +119,8 @@ export const GitHubActivity = () => {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-6">GitHub Activity</h2>
+
+      <WebProof className="mb-8" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <div className="bg-base-200 p-4 rounded-lg shadow">
