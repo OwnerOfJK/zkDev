@@ -12,15 +12,9 @@ const Landing: NextPage = () => {
           <source src="/zkdev.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {/* Overlay to make text more readable */}
         <div className="absolute inset-0 bg-black/50" />
       </div>
-
-      {/* Main Content */}
       <div className="relative z-20 min-h-screen flex flex-col items-center justify-center">
-        {/* GitHub Button at the top */}
-
-        {/* Main Content */}
         <div className="text-center px-5">
           <h1 className="text-6xl font-bold mb-4 text-white">zkDev</h1>
           <p className="text-xl text-gray-200 mb-8">Your developer profile. Private and verified.</p>

@@ -118,6 +118,48 @@ app.get('/auth/signout', (req: Request, res: Response) => {
   });
 });
 
+interface GitHubRepository {
+  id: number;
+  name: string;
+  description: string;
+  stargazers_count: number;
+  watchers_count: number;
+  forks_count: number;
+  commit_count?: number;
+}
+
+interface GitHubCommit {
+  sha: string;
+  commit: {
+    message: string;
+    author: {
+      name: string;
+      email: string;
+    };
+  };
+  repository: {
+    id: number;
+    name: string;
+  };
+}
+
+interface GitHubIssue {
+  id: number;
+  number: number;
+  title: string;
+  state: string;
+  repository: {
+    id: number;
+    name: string;
+  };
+}
+
+interface GitHubSearchResponse<T> {
+  total_count: number;
+  incomplete_results: boolean;
+  items: T[];
+}
+
 // Get GitHub activity
 app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: Response) => {
   if (!req.user) {
@@ -132,7 +174,7 @@ app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: 
     }
 
     const headers = {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `token ${accessToken}`,
       Accept: 'application/vnd.github.v3+json',
     };
 
@@ -140,45 +182,65 @@ app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: 
     const reposResponse = await fetch('https://api.github.com/user/repos?sort=updated&per_page=100', {
       headers,
     });
-    const repositories = await reposResponse.json();
+    const repositories = (await reposResponse.json()) as GitHubRepository[];
+
+    // Fetch commits using search API
+    const commitsResponse = await fetch(`https://api.github.com/search/commits?q=author:${req.user.username}&per_page=100`, {
+      headers: {
+        ...headers,
+        Accept: 'application/vnd.github.cloak-preview', // required for commit search
+      },
+    });
+    const commitsData = (await commitsResponse.json()) as GitHubSearchResponse<GitHubCommit>;
+    const commits = commitsData.items || [];
+
+    // Calculate commit counts per repository
+    const commitCounts = new Map<number, number>();
+    commits.forEach(commit => {
+      const repoId = commit.repository.id;
+      commitCounts.set(repoId, (commitCounts.get(repoId) || 0) + 1);
+    });
+
+    // Add commit counts to repositories
+    const repositoriesWithCommits = repositories.map(repo => ({
+      ...repo,
+      commit_count: commitCounts.get(repo.id) || 0
+    }));
 
     // Fetch user's pull requests
-    const prsResponse = await fetch('https://api.github.com/user/issues?filter=all&state=all&per_page=100', {
+    const prsResponse = await fetch(`https://api.github.com/search/issues?q=author:${req.user.username}+is:pr&per_page=100`, {
       headers,
     });
-    const pullRequests = await prsResponse.json();
+    const prsData = (await prsResponse.json()) as GitHubSearchResponse<GitHubIssue>;
+    const pullRequests = prsData.items || [];
 
     // Fetch user's issues
-    const issuesResponse = await fetch('https://api.github.com/user/issues?filter=all&state=all&per_page=100', {
+    const issuesResponse = await fetch(`https://api.github.com/search/issues?q=author:${req.user.username}+is:issue&per_page=100`, {
       headers,
     });
-    const issues = await issuesResponse.json();
+    const issuesData = (await issuesResponse.json()) as GitHubSearchResponse<GitHubIssue>;
+    const issues = issuesData.items || [];
 
-    // Fetch user's events (includes commits, PRs, issues, etc.)
-    const eventsResponse = await fetch('https://api.github.com/user/events?per_page=100', {
-      headers,
+    // Log the response sizes for debugging
+    console.log('Response sizes:', {
+      repositories: repositoriesWithCommits.length,
+      commits: commits.length,
+      pullRequests: pullRequests.length,
+      issues: issues.length,
     });
-    const eventsData = await eventsResponse.json();
-
-    // Process events to get commits
-    let commits: any[] = [];
-    if (Array.isArray(eventsData)) {
-      commits = eventsData
-        .filter((event: any) => event.type === 'PushEvent')
-        .flatMap((event: any) => event.payload.commits || []);
-    } else {
-      console.error('Unexpected events response format:', eventsData);
-    }
 
     res.json({
       commits,
       pullRequests,
       issues,
-      repositories,
+      repositories: repositoriesWithCommits,
     });
   } catch (error) {
     console.error('Error fetching GitHub activity:', error);
-    res.status(500).json({ error: 'Failed to fetch GitHub activity' });
+    res.status(500).json({ 
+      error: 'Failed to fetch GitHub activity',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
   }
 });
 

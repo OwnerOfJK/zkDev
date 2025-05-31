@@ -11,7 +11,15 @@ interface GitHubActivity {
   }>;
   pullRequests: any[];
   issues: any[];
-  repositories: any[];
+  repositories: Array<{
+    id: number;
+    name: string;
+    description: string;
+    stargazers_count: number;
+    watchers_count: number;
+    forks_count: number;
+    commit_count: number;
+  }>;
 }
 
 interface UserInfo {
@@ -104,6 +112,9 @@ export const GitHubActivity = () => {
     return null;
   }
 
+  // Sort repositories by commit count
+  const sortedRepositories = [...activity.repositories].sort((a, b) => b.commit_count - a.commit_count);
+
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-2xl font-bold mb-6">GitHub Activity</h2>
@@ -130,27 +141,11 @@ export const GitHubActivity = () => {
         </div>
       </div>
 
-      {/* Recent Commits */}
-      <div className="bg-base-200 p-6 rounded-lg shadow mb-6">
-        <h3 className="text-xl font-bold mb-4">Recent Commits</h3>
-        <div className="space-y-4">
-          {activity.commits.slice(0, 5).map(commit => (
-            <div key={commit.sha} className="border-b border-base-300 pb-4 last:border-0">
-              <p className="font-mono text-sm text-base-content/70 mb-1">{commit.sha.substring(0, 7)}</p>
-              <p className="font-medium">{commit.message}</p>
-              <p className="text-sm text-base-content/70">
-                by {commit.author.name} ({commit.author.email})
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Recent Repositories */}
       <div className="bg-base-200 p-6 rounded-lg shadow">
-        <h3 className="text-xl font-bold mb-4">Recent Repositories</h3>
+        <h3 className="text-xl font-bold mb-4">Top Repositories by Commits</h3>
         <div className="space-y-4">
-          {activity.repositories.slice(0, 5).map((repo: any) => (
+          {sortedRepositories.slice(0, 5).map(repo => (
             <div key={repo.id} className="border-b border-base-300 pb-4 last:border-0">
               <h4 className="font-bold">{repo.name}</h4>
               <p className="text-sm text-base-content/70 mb-2">{repo.description || "No description"}</p>
@@ -158,6 +153,7 @@ export const GitHubActivity = () => {
                 <span>⭐ {repo.stargazers_count}</span>
                 <span>👁️ {repo.watchers_count}</span>
                 <span>🍴 {repo.forks_count}</span>
+                <span>📝 {repo.commit_count} commits</span>
               </div>
             </div>
           ))}
