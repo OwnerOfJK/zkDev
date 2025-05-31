@@ -30,14 +30,17 @@ yarn install
 cp packages/nextjs/.env.example packages/nextjs/.env
 cp packages/express/.env.example packages/express/.env
 
-# Local eth network
+# Start local Ethereum network
 yarn chain
 
-# Start the backend server
+# deploy template contracts
+yarn deploy
+
+# Start the backedn
 yarn api:dev
 
-# Start the frontend
-yarn dev
+# In a separate terminal, start the frontend
+yarn start
 ```
 
 The application will be available at http://localhost:3000
