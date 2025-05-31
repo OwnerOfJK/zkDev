@@ -4,8 +4,12 @@ import { Strategy as GitHubStrategy } from 'passport-github2';
 import session from 'express-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { exec } from 'child_process';
+import { promisify } from 'util';
 
 dotenv.config();
+
+const execAsync = promisify(exec);
 
 // Extend Express Request type to include user
 declare global {
@@ -14,6 +18,8 @@ declare global {
       id: string;
       username: string;
       provider: string;
+      accessToken: string;
+      photos?: { value: string }[];
       [key: string]: any;
     }
   }
@@ -317,6 +323,75 @@ app.get('/health', (_req: Request, res: Response) => {
 // Test route
 app.get('/test', (_req: Request, res: Response): void => {
   res.json({ message: 'Express server is working!' });
+});
+
+// Add this new endpoint before the catch-all route
+app.get("/api/github/proof", ensureAuthenticated, async (req: Request, res: Response): Promise<void> => {
+  try {
+    console.log("Starting web proof generation...");
+    
+    if (!req.user) {
+      console.log("No user found in request");
+      res.status(401).json({ error: "Not authenticated" });
+      return;
+    }
+
+    const user = req.user as Express.User;
+    console.log("User found:", { 
+      id: user.id, 
+      username: user.username,
+      hasAccessToken: !!user.accessToken 
+    });
+
+    const username = user.username;
+    const githubUrl = `https://api.github.com/search/commits?q=author:${username}&per_page=1`;
+    
+    // First, let's fetch and log the GitHub response
+    console.log("Fetching GitHub data from:", githubUrl);
+    const githubResponse = await fetch(githubUrl, {
+      headers: {
+        Authorization: `token ${user.accessToken}`,
+        Accept: "application/vnd.github.cloak-preview",
+      },
+    });
+    
+    const githubData = await githubResponse.json();
+    console.log("GitHub API Response:", JSON.stringify(githubData, null, 2));
+    console.log("Response size:", JSON.stringify(githubData).length, "bytes");
+
+    // Now generate the proof with the same URL
+    const command = `vlayer web-proof-fetch \
+      --notary "https://test-notary.vlayer.xyz" \
+      --url "${githubUrl}" \
+      -H "Authorization: token ${user.accessToken}" \
+      -H "Accept: application/vnd.github.cloak-preview"`;
+
+    console.log("Executing command:", command);
+
+    const { stdout, stderr } = await execAsync(command);
+
+    if (stderr) {
+      console.error("vlayer error output:", stderr);
+      res.status(500).json({ error: "Failed to generate proof", details: stderr });
+      return;
+    }
+
+    console.log("Proof generated successfully");
+    console.log("Proof length:", stdout.length);
+    
+    // Return both the proof and the GitHub data for debugging
+    res.json({ 
+      proof: stdout,
+      githubData: githubData
+    });
+    console.log(githubData);
+  } catch (error) {
+    console.error("Detailed error in web proof generation:", error);
+    res.status(500).json({ 
+      error: "Failed to generate proof", 
+      details: error instanceof Error ? error.message : "Unknown error"
+    });
+  }
 });
 
 // Start server

@@ -47,7 +47,6 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
   useEffect(() => {
     setMounted(true);
   }, []);
-
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
