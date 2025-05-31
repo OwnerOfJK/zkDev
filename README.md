@@ -55,4 +55,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-*zkDev is currently in development as part of the Prague Global Hackathon.*
+*zkDev is currently in development as part of the Prague Global Hackathon.*`

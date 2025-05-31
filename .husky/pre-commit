@@ -1,1 +1,7 @@
-yarn lint-staged --verbose
+#!/bin/sh
+
+# Run forge fmt for Solidity files
+cd packages/foundry && forge fmt && cd ../..
+
+# Run lint-staged
+yarn lint-staged
