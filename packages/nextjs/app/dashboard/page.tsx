@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { NextPage } from "next";
-import { useAccount } from "wagmi";
 import { GitHubActivity } from "~~/components/GitHubActivity";
-import { Address } from "~~/components/scaffold-eth";
 
 interface UserInfo {
   id: string;
@@ -14,7 +12,6 @@ interface UserInfo {
 }
 
 const Dashboard: NextPage = () => {
-  const { address: connectedAddress } = useAccount();
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -70,8 +67,7 @@ const Dashboard: NextPage = () => {
       <div className="flex items-center flex-col grow pt-10">
         <div className="px-5 w-full max-w-7xl">
           <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">zkDev</span>
+            <span className="block text-4xl font-bold">Your Dev Profile</span>
           </h1>
           {/* User Info Section */}
           <div className="items-center bg-base-200 p-6 rounded-lg shadow-lg mb-8">
@@ -90,13 +86,6 @@ const Dashboard: NextPage = () => {
               <span className="font-mono text-sm">{userInfo.accessToken ? "✓ Present" : "✗ Missing"}</span>
             </p>
           </div>
-
-          {/* Wallet Info Section */}
-          <div className="flex justify-center items-center space-x-2 flex-col mb-8">
-            <p className="my-2 font-medium">Connected Address:</p>
-            <Address address={connectedAddress} />
-          </div>
-
           {/* GitHub Activity Section */}
           {userInfo.accessToken && <GitHubActivity />}
         </div>
