@@ -57,9 +57,10 @@ passport.deserializeUser((obj: Express.User, done) => {
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID || '',
     clientSecret: process.env.GITHUB_SECRET_KEY || '',
-    callbackURL: process.env.GITHUB_CALLBACK_URL || 'http://localhost:4000/auth/github/callback',
+    callbackURL: process.env.GITHUB_CALLBACK_URL || 'http://localhost:4000/auth/github/callback'
   },
   (_accessToken: string, _refreshToken: string, profile: any, done: any) => {
+    //console.log(accessToken, profile);
     // For simplicity, we're just returning the GitHub profile
     // In a real app, you'd want to store this in a database
     process.nextTick(() => {
@@ -84,7 +85,7 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/auth/github/error' }),
   (_req: Request, res: Response) => {
-    res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/auth/success`);
+    res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard`);
   }
 );
 
@@ -116,19 +117,6 @@ app.get('/auth/signout', (req: Request, res: Response) => {
 // Health check endpoint
 app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({ status: 'ok' });
-});
-
-// Cleanup endpoint for testing
-app.get('/auth/cleanup', (req: Request, res: Response) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.error('Error destroying session:', err);
-      res.status(500).json({ error: 'Failed to cleanup session' });
-      return;
-    }
-    res.clearCookie('connect.sid');
-    res.status(200).json({ message: 'Session cleaned up successfully' });
-  });
 });
 
 // Test route
