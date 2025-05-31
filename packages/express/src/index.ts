@@ -244,6 +244,71 @@ app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: 
   }
 });
 
+interface GitHubCommitSearchItem {
+  sha: string;
+  commit: {
+    message: string;
+    author: {
+      name: string;
+      email: string;
+    };
+  };
+  repository: {
+    id: number;
+    name: string;
+  };
+}
+
+// Get leaderboard data
+app.get('/auth/github/leaderboard', async (_req: Request, res: Response) => {
+  try {
+    // For now, we'll use a mock array of users
+    // In a real application, you would fetch this from your database
+    const users = [
+      { username: 'user1', avatar_url: 'https://github.com/identicons/user1.png' },
+      { username: 'user2', avatar_url: 'https://github.com/identicons/user2.png' },
+      // Add more users as needed
+    ];
+
+    const leaderboardData = await Promise.all(
+      users.map(async (user) => {
+        try {
+          const response = await fetch(`https://api.github.com/search/commits?q=author:${user.username}&per_page=100`, {
+            headers: {
+              Accept: 'application/vnd.github.cloak-preview',
+            },
+          });
+          const data = await response.json() as GitHubSearchResponse<GitHubCommitSearchItem>;
+          return {
+            username: user.username,
+            avatar_url: user.avatar_url,
+            total_commits: data.total_count || 0,
+            repositories: data.items?.map(item => item.repository.name) || [],          };
+        } catch (error) {
+          console.error(`Error fetching data for user ${user.username}:`, error);
+          return {
+            username: user.username,
+            avatar_url: user.avatar_url,
+            total_commits: 0,
+            repositories: [],
+          };
+        }
+      })
+    );
+
+    // Sort by total commits in descending order
+    const sortedLeaderboard = leaderboardData.sort((a, b) => b.total_commits - a.total_commits);
+
+    res.json(sortedLeaderboard);
+  } catch (error) {
+    console.error('Error fetching leaderboard data:', error);
+    res.status(500).json({ 
+      error: 'Failed to fetch leaderboard data',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
+});
+
 // Health check endpoint
 app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({ status: 'ok' });
