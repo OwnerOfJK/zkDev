@@ -128,13 +128,13 @@ async function getProjectInfo(projectId) {
     return null;
   }
   const data = await res.json();
-  // logBoth(
-  //   `API response (getProjectInfo, project ${projectId}): ${JSON.stringify(
-  //     data,
-  //     null,
-  //     2
-  //   )}`
-  // );
+  logBoth(
+    `API response (getProjectInfo, project ${projectId}): ${JSON.stringify(
+      data,
+      null,
+      2
+    )}`
+  );
   return data;
 }
 
