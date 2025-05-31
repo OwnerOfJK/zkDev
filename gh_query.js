@@ -43,19 +43,72 @@ function isCodeFile(filename) {
   return CODE_EXTENSIONS.some((ext) => filename.endsWith(ext));
 }
 
-async function fetchJSON(url) {
-  const res = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${GITHUB_TOKEN}`,
-      Accept: "application/vnd.github.v3+json",
-    },
-  });
-  if (!res.ok) {
-    // Return a special object for 409 errors (empty repo or missing branch)
-    if (res.status === 409) return { skip: true, status: 409 };
-    throw new Error(`Failed to fetch ${url}: ${res.status}`);
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+async function fetchJSON(url, timeoutMs = 20000, retryCount = 0) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        Accept: "application/vnd.github.v3+json",
+      },
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+    if (res.status === 403 || res.status === 429) {
+      const remaining = res.headers.get("x-ratelimit-remaining");
+      const reset = res.headers.get("x-ratelimit-reset");
+      const retryAfter = res.headers.get("retry-after");
+      console.log(`Rate limit headers for ${url}:`);
+      console.log(`  x-ratelimit-remaining: ${remaining}`);
+      console.log(`  x-ratelimit-reset: ${reset}`);
+      console.log(`  retry-after: ${retryAfter}`);
+      if (remaining === "0" && reset) {
+        const now = Math.floor(Date.now() / 1000);
+        const waitSec = Math.max(parseInt(reset) - now, 1);
+        console.log(
+          `Rate limit exceeded. Waiting ${waitSec} seconds until reset...`
+        );
+        await sleep(waitSec * 1000);
+        if (retryCount < 5) return fetchJSON(url, timeoutMs, retryCount + 1);
+        throw new Error(
+          `Rate limit exceeded and max retries reached for ${url}`
+        );
+      } else if (retryAfter) {
+        const waitSec = parseInt(retryAfter);
+        console.log(
+          `Secondary rate limit. Waiting ${waitSec} seconds before retrying...`
+        );
+        await sleep(waitSec * 1000);
+        if (retryCount < 5) return fetchJSON(url, timeoutMs, retryCount + 1);
+        throw new Error(
+          `Secondary rate limit and max retries reached for ${url}`
+        );
+      } else {
+        // Exponential backoff for unknown secondary rate limit
+        const waitSec = Math.pow(2, retryCount + 1);
+        console.log(
+          `Possible secondary rate limit. Waiting ${waitSec} seconds before retrying...`
+        );
+        await sleep(waitSec * 1000);
+        if (retryCount < 5) return fetchJSON(url, timeoutMs, retryCount + 1);
+        throw new Error(
+          `Secondary rate limit and max retries reached for ${url}`
+        );
+      }
+    }
+    if (!res.ok) {
+      if (res.status === 409) return { skip: true, status: 409 };
+      throw new Error(`Failed to fetch ${url}: ${res.status}`);
+    }
+    return res.json();
+  } catch (e) {
+    clearTimeout(timeout);
+    console.error(`Error fetching ${url}: ${e.message}`);
+    throw e;
   }
-  return res.json();
 }
 
 async function getAllUserRepos(username) {
@@ -102,24 +155,57 @@ async function getFileContent(repoFullName, fileSha) {
 }
 
 async function countLinesInRepo(repoFullName, branch) {
-  const sha = await getLatestCommitSha(repoFullName, branch);
-  const files = await getTree(repoFullName, sha);
-  let totalLines = 0;
-  for (const file of files) {
-    if (file.size > 1000000) continue; // skip large files
-    if (!isCodeFile(file.path)) continue; // skip non-code files
-    let content = "";
-    try {
-      content = await getFileContent(repoFullName, file.sha);
-    } catch (e) {
-      continue; // skip files that can't be fetched
+  try {
+    console.log(
+      `  Getting latest commit SHA for ${repoFullName} (${branch})...`
+    );
+    const sha = await getLatestCommitSha(repoFullName, branch);
+    console.log(`  Getting tree for commit ${sha}...`);
+    const files = await getTree(repoFullName, sha);
+    let totalLines = 0;
+    let fileCount = 0;
+    for (const file of files) {
+      fileCount++;
+      if (file.size > 1000000) {
+        console.log(
+          `    Skipping large file: ${file.path} (${file.size} bytes)`
+        );
+        continue;
+      }
+      if (!isCodeFile(file.path)) {
+        console.log(`    Skipping non-code file: ${file.path}`);
+        continue;
+      }
+      let content = "";
+      try {
+        console.log(
+          `    Fetching file ${file.path} (${fileCount}/${files.length})...`
+        );
+        content = await getFileContent(repoFullName, file.sha);
+      } catch (e) {
+        if (e.message.includes("403")) {
+          throw new Error(`403 error for repo ${repoFullName}`);
+        }
+        console.log(`    Error fetching file ${file.path}: ${e.message}`);
+        continue;
+      }
+      const nonPrintable = (content.match(/[^\x09-\x0d\x20-\x7e]/g) || [])
+        .length;
+      if (content.length > 0 && nonPrintable / content.length > 0.1) {
+        console.log(`    Skipping binary file: ${file.path}`);
+        continue;
+      }
+      const lineCount = content.split("\n").length;
+      totalLines += lineCount;
+      console.log(`    Counted ${lineCount} lines in ${file.path}`);
     }
-    // crude binary check: skip if >10% non-printable chars
-    const nonPrintable = (content.match(/[^\x09-\x0d\x20-\x7e]/g) || []).length;
-    if (content.length > 0 && nonPrintable / content.length > 0.1) continue;
-    totalLines += content.split("\n").length;
+    return totalLines;
+  } catch (e) {
+    if (e.message.includes("403")) {
+      throw new Error(`403 error for repo ${repoFullName}`);
+    }
+    throw e;
   }
-  return totalLines;
 }
 
 async function main() {
@@ -158,14 +244,22 @@ async function main() {
     }
   }
 
-  // For each repo, count and log the number of lines in the current branch (code/text files only)
   for (const repo of result) {
     try {
+      console.log(
+        `\nProcessing repo: ${repo.name} (ID: ${repo.id}, branch: ${repo.branch})`
+      );
       const lineCount = await countLinesInRepo(repo.name, repo.branch);
       console.log(
         `Lines in ${repo.name} (ID: ${repo.id}, branch: ${repo.branch}): ${lineCount}`
       );
     } catch (e) {
+      if (e.message.includes("403")) {
+        console.log(
+          `403 error for repo ${repo.name}, skipping to next repository.`
+        );
+        continue;
+      }
       console.log(`Error counting lines for ${repo.name}: ${e.message}`);
     }
   }
