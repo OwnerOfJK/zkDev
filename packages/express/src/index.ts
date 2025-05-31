@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 import passport from 'passport';
 import { Strategy as GitHubStrategy } from 'passport-github2';
+import { DB } from 'db.ts';
 import session from 'express-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -18,6 +19,17 @@ declare global {
     }
   }
 }
+
+// DATABASE
+// query with DB.queryDB(query)
+
+// LEADERBOARD
+//  const query = 'SELECT username, score FROM leaderboard';
+
+// DASHBOARD
+//  const id = req.params.id;
+//  const query = `SELECT * FROM users WHERE ID = ${id} INNER JOIN SELECT * FROM repos WHERE ID = (SELECT repoID FROM repo_users WHERE userID = ${id})`;
+
 
 const app: Application = express();
 
@@ -235,6 +247,18 @@ app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: 
       issues,
       repositories: repositoriesWithCommits,
     });
+	// update db here i guess
+	// ADD TO USERS
+	//	const query = `INSERT INTO users (${id}, ${username}, ${address})`;
+
+	// ADD TO REPOS
+	//	const query = `INSERT INTO repos (${repoid}, ${views}, ${stars}, ${forks}); INSERT INTO repo_users (${userid}, ${repoid}, ${commits})`;
+
+	// ADD TO LEADERBOARD
+	//empty table and refill it
+	//	const query = `INSERT INTO leaderboard (${id}, ${username}, ${score})`;
+
+	DB.queryDB(``);
   } catch (error) {
     console.error('Error fetching GitHub activity:', error);
     res.status(500).json({ 
