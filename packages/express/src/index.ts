@@ -4,7 +4,7 @@ import { Strategy as GitHubStrategy } from 'passport-github2';
 import session from 'express-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { createVlayerClient } from "@vlayer/sdk";
+/*import { createVlayerClient } from "@vlayer/sdk";
 import { createExtensionWebProofProvider } from '@vlayer/sdk/web_proof'
 import {
   startPage,
@@ -12,7 +12,10 @@ import {
   notarize,
 } from '@vlayer/sdk/web_proof'
 import webProofProver from "../out/WebProofProver.sol/WebProofProver.json";
+import { sepolia } from 'viem/chains'
+import { proverAbi } from './proverAbi'*/
 
+ 
 dotenv.config();
 
 // Extend Express Request type to include user
@@ -144,9 +147,129 @@ app.listen(port, () => console.log(`Server running on http://localhost:${port}`)
 export default app;
 
 
+// <reference types="bun" />
+
+import { createVlayerClient } from "@vlayer/sdk";
+//import proverSpec from "../out/WebProofProver.sol/WebProofProver.json";
+//import verifierSpec from "../out/WebProofVerifier.sol/WebProofVerifier.json";
+import proverSpec from "../out/KrakenProver.sol/KrakenProver.json";
+import verifierSpec from "../out/KrakenVerifier.sol/KrakenVerifier.json";
+import {
+  getConfig,
+  createContext,
+  //deployVlayerContracts,
+  //writeEnvVariables,
+} from "@vlayer/sdk/config";
+import { exec } from 'child_process';
+
+
 async function testVlayer() {
-  const vlayer = createVlayerClient(); //just for broser extension ? 
-  console.log(vlayer);
+  const URL_TO_PROVE = "https://api.kraken.com/0/public/Ticker?pair=ETHUSD";
+
+  const prover = process.env.VITE_PROVER_ADDRESS ; 
+  const verifier = process.env.VITE_VERIFIER_ADDRESS ; 
+  
+  console.log("👉 Starting proving with contracts ",{ prover, verifier });
+  
+  const config = getConfig(); //also in _deploy.ts
+  const { chain, ethClient, account, proverUrl, confirmations, notaryUrl } =
+    createContext(config);
+  
+  async function generateWebProof() {
+
+    console.log("⏳ Generating web proof...");
+    
+      exec(`vlayer web-proof-fetch --notary ${notaryUrl} --url ${URL_TO_PROVE}`,(error, stdout, stderr) => {
+      if (error) {
+        console.error('Error: ${error.message}');
+        return;
+      }
+      if (stderr) {
+        console.error('stderr: ${stderr}');
+        return;
+      }
+      console.log('stdout:\n${stdout}');
+      return stdout.toString();
+    });
+    
+  }
+    
+  
+  const webProof = await generateWebProof();
+  
+  const vlayer = createVlayerClient({ // also in _deploy.ts
+    url: proverUrl,
+    token: config.token,
+  });
+  
+  
+  console.log("⏳ Proving...");
+  const hash = await vlayer.prove({
+    address: `0x${prover}`,
+    functionName: "main",
+    proverAbi: proverSpec.abi,
+    args: [
+      {
+        webProofJson: webProof.toString(),
+      },
+    ],
+    chainId: chain.id,
+    gasLimit: config.gasLimit,
+  });
+  const result = await vlayer.waitForProvingResult({ hash });
+  const [proof, avgPrice] = result;
+  console.log("✅ Proof generated");
+  console.log("👉 Avg price:", avgPrice);
+  console.log("👉 Reading contract...");
+  const avgPriceInVerifier = await ethClient.readContract({
+    address: `0x${verifier}`,
+    abi: verifierSpec.abi,
+    functionName: "avgPrice",
+  });
+  console.log("👉 Avg price in verifier:", avgPriceInVerifier);
+  
+  console.log("⏳ Verifying...");
+  
+  // Workaround for viem estimating gas with `latest` block causing future block assumptions to fail on slower chains like mainnet/sepolia
+  const gas = await ethClient.estimateContractGas({
+    address: verifier,
+    abi: verifierSpec.abi,
+    functionName: "verify",
+    args: [proof, avgPrice],
+    account,
+    blockTag: "pending",
+  });
+  
+  const txHash = await ethClient.writeContract({
+    address: verifier,
+    abi: verifierSpec.abi,
+    functionName: "verify",
+    args: [proof, avgPrice],
+    chain,
+    account,
+    gas,
+  });
+  
+  await ethClient.waitForTransactionReceipt({
+    hash: txHash,
+    confirmations,
+    retryCount: 60,
+    retryDelay: 1000,
+  });
+  
+  console.log("✅ Verified!");
+  console.log("👉 Reading contract...");
+  const avgPriceInVerifier2 = await ethClient.readContract({
+    address: verifier,
+    abi: verifierSpec.abi,
+    functionName: "avgPrice",
+  });
+  console.log("👉 Avg price in verifier:", avgPriceInVerifier2);
+}
+/*
+async function testVlayer() {
+  const vlayer = createVlayerClient(); //just for browser extension ? 
+  console.log(vlayer);*/
   /*const hash = await vlayer.prove({
     address: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
     proverAbi: proverSpec.abi,
@@ -154,7 +277,7 @@ async function testVlayer() {
     args: ['0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045', 123],
     chainId: chain.id,
   });*/
-
+/*
   const webProofProvider = createExtensionWebProofProvider({
     wsProxyUrl: "ws://localhost:3003",
   })
@@ -192,5 +315,13 @@ async function testVlayer() {
     },
   );
 
-
 }
+
+
+function prove(webProof) {
+  const hash = await vlayer.prove({
+    
+      ...proverCallCommitment,
+      args: [webProof, ...commitmentArgs],
+  })
+}*/

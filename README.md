@@ -25,6 +25,7 @@ cd zkDev
 
 # Install dependencies
 yarn install
+# Install vlayer stuffs
 
 # Set up environment variables
 cp packages/nextjs/.env.example packages/nextjs/.env
@@ -37,6 +38,7 @@ yarn chain
 
 # deploy template contracts
 yarn deploy
+#Note: use bun (vlayer) to deploy Prover and Verifier contracts ? 
 
 # Start the backedn
 yarn api:dev
