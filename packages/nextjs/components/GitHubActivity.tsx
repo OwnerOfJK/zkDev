@@ -34,11 +34,10 @@ export const GitHubActivity = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
-
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/user`, {
+        const response = await fetch("/api/auth/user", {
           credentials: "include",
         });
 
@@ -57,13 +56,12 @@ export const GitHubActivity = () => {
 
     fetchUserInfo();
   }, []);
-
   useEffect(() => {
     const fetchActivity = async () => {
-      if (!userInfo?.accessToken) return;
+      if (!userInfo?.accessToken || userInfo.accessToken === "missing") return;
 
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/github/activity`, {
+        const response = await fetch("/api/auth/github/activity", {
           credentials: "include",
         });
 
@@ -81,7 +79,7 @@ export const GitHubActivity = () => {
       }
     };
 
-    if (userInfo?.accessToken) {
+    if (userInfo?.accessToken && userInfo.accessToken === "present") {
       fetchActivity();
     }
   }, [userInfo]);

@@ -9,6 +9,10 @@ interface UserInfo {
   displayName: string;
   provider: string;
   accessToken: string;
+  username: string;
+  avatar_url?: string;
+  name?: string;
+  email?: string;
 }
 
 const Dashboard: NextPage = () => {
@@ -18,7 +22,7 @@ const Dashboard: NextPage = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/user`, {
+        const response = await fetch("/api/auth/user", {
           credentials: "include",
         });
 
@@ -80,14 +84,16 @@ const Dashboard: NextPage = () => {
             </p>
             <p className="mb-2">
               <span className="font-bold">ID:</span> {userInfo.id}
-            </p>
+            </p>{" "}
             <p className="mb-2">
               <span className="font-bold">Access Token:</span>{" "}
-              <span className="font-mono text-sm">{userInfo.accessToken ? "✓ Present" : "✗ Missing"}</span>
+              <span className="font-mono text-sm">
+                {userInfo.accessToken === "present" ? "✓ Present" : "✗ Missing"}
+              </span>
             </p>
-          </div>
+          </div>{" "}
           {/* GitHub Activity Section */}
-          {userInfo.accessToken && <GitHubActivity />}
+          {userInfo.accessToken === "present" && <GitHubActivity />}
         </div>
       </div>
     </>
