@@ -30,9 +30,9 @@ pgnTestnet = "https://sepolia.publicgoods.network"
 
 localhost = "http://127.0.0.1:8545"
 
-[etherscan]
-polygonMumbai = { key = "${ETHERSCAN_API_KEY}" }
-sepolia = { key = "${ETHERSCAN_API_KEY}" }
+[blockscout]
+polygonMumbai = { key = "${BLOCKSCOUT_API_KEY}" }
+sepolia = { key = "${BLOCKSCOUT_API_KEY}" }
 
 
 
