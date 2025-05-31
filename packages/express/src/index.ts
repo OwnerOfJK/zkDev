@@ -59,12 +59,15 @@ passport.use(new GitHubStrategy({
     clientSecret: process.env.GITHUB_SECRET_KEY || '',
     callbackURL: process.env.GITHUB_CALLBACK_URL || 'http://localhost:4000/auth/github/callback'
   },
-  (_accessToken: string, _refreshToken: string, profile: any, done: any) => {
-    //console.log(accessToken, profile);
-    // For simplicity, we're just returning the GitHub profile
-    // In a real app, you'd want to store this in a database
+  (accessToken: string, _refreshToken: string, profile: any, done: any) => {
+    console.log(accessToken, profile);
+    // Store the access token in the user object
+    const user = {
+      ...profile,
+      accessToken
+    };
     process.nextTick(() => {
-      return done(null, profile);
+      return done(null, user);
     });
   }
 ));
@@ -99,7 +102,8 @@ app.get('/auth/user', ensureAuthenticated, (req: Request, res: Response): void =
   const userInfo = {
     id: req.user.id,
     displayName: req.user.username,
-    provider: req.user.provider
+    provider: req.user.provider,
+    accessToken: req.user.accessToken
   };
   res.json(userInfo);
 });
