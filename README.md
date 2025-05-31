@@ -20,7 +20,7 @@ zkDev/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/zkDev.git
+git clone https://github.com/OwnerOfJK/zkDev.git
 cd zkDev
 
 # Install dependencies
