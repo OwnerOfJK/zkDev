@@ -30,6 +30,8 @@ yarn install
 cp packages/nextjs/.env.example packages/nextjs/.env
 cp packages/express/.env.example packages/express/.env
 
+# Now, edit these two .env file with the required tokens.
+
 # Start local Ethereum network
 yarn chain
 

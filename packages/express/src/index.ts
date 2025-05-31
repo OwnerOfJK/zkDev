@@ -4,6 +4,14 @@ import { Strategy as GitHubStrategy } from 'passport-github2';
 import session from 'express-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { createVlayerClient } from "@vlayer/sdk";
+import { createExtensionWebProofProvider } from '@vlayer/sdk/web_proof'
+import {
+  startPage,
+  expectUrl,
+  notarize,
+} from '@vlayer/sdk/web_proof'
+import webProofProver from "../out/WebProofProver.sol/WebProofProver.json";
 
 dotenv.config();
 
@@ -57,7 +65,7 @@ passport.deserializeUser((obj: Express.User, done) => {
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID || '',
     clientSecret: process.env.GITHUB_SECRET_KEY || '',
-    callbackURL: process.env.GITHUB_CALLBACK_URL || 'http://localhost:3000/auth/github/callback'
+    callbackURL: process.env.GITHUB_CALLBACK_URL || 'http://localhost:4000/auth/github/callback'
   },
   (_accessToken: string, _refreshToken: string, profile: any, done: any) => {
     // For simplicity, we're just returning the GitHub profile
@@ -123,8 +131,66 @@ app.get('/test', (_req: Request, res: Response): void => {
   res.json({ message: 'Express server is working!' });
 });
 
+// Test vlayer route
+app.get('/test-vlayer', (_req: Request, res: Response): void => {
+  testVlayer();
+  res.json({ message: 'Vlayer server is working!' });
+});
+
 // Start server
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
 
 export default app;
+
+
+async function testVlayer() {
+  const vlayer = createVlayerClient(); //just for broser extension ? 
+  console.log(vlayer);
+  /*const hash = await vlayer.prove({
+    address: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+    proverAbi: proverSpec.abi,
+    functionName: 'main',
+    args: ['0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045', 123],
+    chainId: chain.id,
+  });*/
+
+  const webProofProvider = createExtensionWebProofProvider({
+    wsProxyUrl: "ws://localhost:3003",
+  })
+  //default providers: 
+  //notaryUrl: https://test-notary.vlayer.xyz
+  //wsProxyUrl: wss://test-wsproxy.vlayer.xyz
+
+
+  // all args required by prover contract function except webProof itself
+  const commitmentArgs = ['0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045']
+
+  const proverCallCommitment = {
+    address: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
+    functionName: 'main',
+    commitmentArgs,
+    chainId: process.env.VLAYER_PROVER_CHAIN,
+    proverAbi: webProofProver.abi,
+  }
+
+  webProofProvider.requestWebProof({
+    proverCallCommitment,
+    logoUrl: 'http://twitterswap.com/logo.png',
+    steps: [
+      startPage('https://x.com/i/flow/login', 'Go to x.com login page'),
+      expectUrl('https://x.com/home', 'Log in'),
+      notarize('https://api.x.com/1.1/account/settings.json', 'GET', 'Generate Proof of Twitter profile', []),
+    ],
+  });
+
+  webProofProvider.addEventListeners(
+    ExtensionMessageType.ProofDone,
+    ({ payload: { presentationJson } }) => {
+      const webProof = JSON.stringify({ presentationJson });
+      prove(webProof);
+    },
+  );
+
+
+}
