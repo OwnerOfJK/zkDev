@@ -1,6 +1,6 @@
 import { createVlayerClient } from "@vlayer/sdk";
-import nftSpec from "../out/ExampleNFT.sol/ExampleNFT.json";
-import tokenSpec from "../out/ExampleToken.sol/ExampleToken.json";
+import nftSpec from "../out/ExampleNFT.sol/ExampleNFT";
+import tokenSpec from "../out/ExampleToken.sol/ExampleToken";
 import {
   getConfig,
   createContext,
@@ -8,8 +8,8 @@ import {
   waitForContractDeploy,
 } from "@vlayer/sdk/config";
 
-import proverSpec from "../out/SimpleProver.sol/SimpleProver.json";
-import verifierSpec from "../out/SimpleVerifier.sol/SimpleVerifier.json";
+import proverSpec from "../out/SimpleProver.sol/SimpleProver";
+import verifierSpec from "../out/SimpleVerifier.sol/SimpleVerifier";
 
 const config = getConfig();
 const {
