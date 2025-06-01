@@ -2587,9 +2587,9 @@ __metadata:
   linkType: hard
 
 "@pkgr/core@npm:^0.2.4":
-  version: 0.2.4
-  resolution: "@pkgr/core@npm:0.2.4"
-  checksum: 8544f0346c3f7035b9e2fdf60179c68b12d3c76b3fba9533844099af67cf5c0ce5257538f5faa05953d48cc1536d046f003231f321b2f75b3fb449db8410a2b7
+  version: 0.2.5
+  resolution: "@pkgr/core@npm:0.2.5"
+  checksum: 9df63a2b98c26532ca7c7b468c31e1826b3f340e22e3f7929f93e4082c172b8811dcf655db1e7301bde7ada211d81818a682bb33fdcf173dce4b3fc223022436
   languageName: node
   linkType: hard
 
@@ -9754,6 +9754,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jose@npm:^6.0.11":
+  version: 6.0.11
+  resolution: "jose@npm:6.0.11"
+  checksum: 4c4c4d2a170b411d1ccc8bc63812f90d08c0586a079ba057a10fd38f5ea5801d9cc08611caa39fbed6037a8948426aa8e1da32adb945a06c1ba3b85cccf5f47f
+  languageName: node
+  linkType: hard
+
 "js-sha3@npm:0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
@@ -13211,7 +13218,9 @@ __metadata:
   resolution: "se-2@workspace:."
   dependencies:
     husky: ~9.1.6
+    jose: ^6.0.11
     lint-staged: ~13.2.2
+    server-only: ^0.0.1
   languageName: unknown
   linkType: soft
 
@@ -13274,6 +13283,13 @@ __metadata:
     parseurl: ~1.3.3
     send: 0.19.0
   checksum: dffc52feb4cc5c68e66d0c7f3c1824d4e989f71050aefc9bd5f822a42c54c9b814f595fc5f2b717f4c7cc05396145f3e90422af31186a93f76cf15f707019759
+  languageName: node
+  linkType: hard
+
+"server-only@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "server-only@npm:0.0.1"
+  checksum: c432348956641ea3f460af8dc3765f3a1bdbcf7a1e0205b0756d868e6e6fe8934cdee6bff68401a1dd49ba4a831c75916517a877446d54b334f7de36fa273e53
   languageName: node
   linkType: hard
 
@@ -15773,9 +15789,9 @@ __metadata:
   linkType: hard
 
 "zod@npm:^3.22.4":
-  version: 3.25.43
-  resolution: "zod@npm:3.25.43"
-  checksum: 4b60b648f7094c09c96127ec7212403303096f18b7f5d1123990637df9e1641583bf2699260c1d7c2d8061f8b93fd5b10ef9bfd4d7eecf323cf8af374c9b89cd
+  version: 3.25.45
+  resolution: "zod@npm:3.25.45"
+  checksum: 0c5a000455379aa1367dc2b886d1c83eb4d5063fefa2a8d4c10f09c3c8361697225d60b5dbf635757a25fc240128bc40f3bfee4ee1163bf7daf2b1d7cdc1e772
   languageName: node
   linkType: hard
 

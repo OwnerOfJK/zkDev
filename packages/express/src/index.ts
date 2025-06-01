@@ -94,6 +94,13 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/auth/github/error' }),
   (_req: Request, res: Response) => {
+    // Set a custom authentication cookie when user successfully logs in
+    res.cookie('user_session', 'authenticated', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    });
     res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard`);
   }
 );

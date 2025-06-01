@@ -14,6 +14,16 @@ const nextConfig: NextConfig = {
     config.externals.push("pino-pretty", "lokijs", "encoding");
     return config;
   },
+  images: {
+    domains: [
+      'github.com',
+      'avatars.githubusercontent.com',
+      'avatars0.githubusercontent.com',
+      'avatars1.githubusercontent.com',
+      'avatars2.githubusercontent.com',
+      'avatars3.githubusercontent.com',
+    ],
+  },
 };
 
 const isIpfs = process.env.NEXT_PUBLIC_IPFS_BUILD === "true";
