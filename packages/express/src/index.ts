@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 import passport from 'passport';
 import { Strategy as GitHubStrategy } from 'passport-github2';
-import { DB } from 'db.ts';
+import mariadb from 'mariadb';
 import session from 'express-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -20,15 +20,19 @@ declare global {
   }
 }
 
-// DATABASE
-// query with DB.queryDB(query)
-
-// LEADERBOARD
-//  const query = 'SELECT username, score FROM leaderboard';
 
 // DASHBOARD
 //  const id = req.params.id;
 //  const query = `SELECT * FROM users WHERE ID = ${id} INNER JOIN SELECT * FROM repos WHERE ID = (SELECT repoID FROM repo_users WHERE userID = ${id})`;
+
+const DB = mariadb.createPool({
+	host: 'localhost',
+	database: 'zkDevDB',
+	user: 'root',
+	password: 'dbpw',
+});
+
+DB.getConnection();
 
 
 const app: Application = express();
@@ -172,6 +176,54 @@ interface GitHubSearchResponse<T> {
   items: T[];
 }
 
+app.get('/db/leaderboard', (_req: Request, res: Response) => {
+	DB.query('SELECT * FROM leaderboard')
+	.then(data => res.json({
+	  ok: true,
+	  data
+	}))
+	.catch(error => res.status(400).json({
+	  ok: false,
+	  error
+	}));
+});
+
+app.get('/db/users', (_req: Request, res: Response) => {
+	DB.query('SELECT * FROM users')
+	.then(data => res.json({
+	  ok: true,
+	  data
+	}))
+	.catch(error => res.status(400).json({
+	  ok: false,
+	  error
+	}));
+});
+
+app.get('/db/repos', (_req: Request, res: Response) => {
+	DB.query('SELECT * FROM repos')
+	.then(data => res.json({
+	  ok: true,
+	  data
+	}))
+	.catch(error => res.status(400).json({
+	  ok: false,
+	  error
+	}));
+});
+
+app.get('/db/repo_users', (_req: Request, res: Response) => {
+	DB.query('SELECT * FROM repo_users')
+	.then(data => res.json({
+	  ok: true,
+	  data
+	}))
+	.catch(error => res.status(400).json({
+	  ok: false,
+	  error
+	}));
+});
+
 // Get GitHub activity
 app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: Response) => {
   if (!req.user) {
@@ -258,7 +310,7 @@ app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: 
 	//empty table and refill it
 	//	const query = `INSERT INTO leaderboard (${id}, ${username}, ${score})`;
 
-	DB.queryDB(``);
+	//DB.queryDB(``);
   } catch (error) {
     console.error('Error fetching GitHub activity:', error);
     res.status(500).json({ 

@@ -26,10 +26,3 @@ CREATE TABLE IF NOT EXISTS leaderboard(
 	PRIMARY KEY (ID), 
 	FOREIGN KEY (ID) REFERENCES users(ID)
 );
-
-
-going to /dashboard -> api call to github to get data, then show it
-
-db: 
-logging in -> api call -> feed to DB
-going to dashboard -> DB query to get data -> show it
