@@ -1,11 +1,22 @@
+// @ts-nocheck
 import express, { Request, Response, NextFunction, Application } from 'express';
 import passport from 'passport';
 import { Strategy as GitHubStrategy } from 'passport-github2';
 import session from 'express-session';
 import cors from 'cors';
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import { createVlayerClient } from '@vlayer/sdk';
+import {
+  getConfig,
+  createContext,
+  deployVlayerContracts,
+  writeEnvVariables,
+} from '@vlayer/sdk/config';
+import proverSpec from "../../foundry/out/GithubProover.sol/GithubProver.json" assert { type: "json" };
+import fetch from 'node-fetch';
+import * as fs from 'fs';
 
 dotenv.config();
 
@@ -325,6 +336,10 @@ app.get('/test', (_req: Request, res: Response): void => {
   res.json({ message: 'Express server is working!' });
 });
 
+/*===========================
+  Web proof generation
+===========================*/
+
 // Add this new endpoint before the catch-all route
 app.get("/api/github/proof", ensureAuthenticated, async (req: Request, res: Response): Promise<void> => {
   try {
@@ -344,7 +359,20 @@ app.get("/api/github/proof", ensureAuthenticated, async (req: Request, res: Resp
     });
 
     const username = user.username;
-    const githubUrl = `https://api.github.com/search/commits?q=author:${username}&per_page=1`;
+
+    // Get data from Github API + notarize each request
+    await queryGithub(username);
+    } catch (error) {
+      console.error("Detailed error in web proof generation:", error);
+      res.status(500).json({ 
+        error: "Failed to generate proof", 
+        details: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+
+
+  });
+    /*const githubUrl = `https://api.github.com/search/commits?q=author:${username}&per_page=1`;
     
     // First, let's fetch and log the GitHub response
     console.log("Fetching GitHub data from:", githubUrl);
@@ -378,9 +406,10 @@ app.get("/api/github/proof", ensureAuthenticated, async (req: Request, res: Resp
 
     console.log("Proof generated successfully");
     console.log("Proof length:", stdout.length);
-    
+    */
+
     // Return both the proof and the GitHub data for debugging
-    res.json({ 
+    /*res.json({ 
       proof: stdout,
       githubData: githubData
     });
@@ -392,8 +421,211 @@ app.get("/api/github/proof", ensureAuthenticated, async (req: Request, res: Resp
       details: error instanceof Error ? error.message : "Unknown error"
     });
   }
-});
+});*/
 
+/*===========================
+  Queries to github API
+===========================*/
+
+
+// const GITHUB_USER = process.env.GITHUB_USER;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const REPO_LIMIT = process.env.REPO_LIMIT ? parseInt(process.env.REPO_LIMIT, 10) : 5;
+const LOG_FILE = "gh_query2.log";
+
+async function fetchProof(url: string): Promise<string> {
+
+  console.log("Fetching proof for URL:", url);
+  
+  const command = `vlayer web-proof-fetch \
+      --notary "https://test-notary.vlayer.xyz" \
+      --url "${url}" \
+      -H "Authorization: token ${GITHUB_TOKEN}" \
+      -H "Accept: application/vnd.github.cloak-preview" \
+      --max-recv-data 9000`;
+      console.log("Executing command:", command);
+      const { stdout, stderr } = await execAsync(command);
+
+      if (stderr) {
+        console.error("vlayer error output:", stderr);
+        //res.status(500).json({ error: "Failed to generate proof", details: stderr });
+        //return;
+      }
+      /*await exec(command, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`Error executing command: ${error}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`, stdout.length);
+        console.error(`stderr: ${stderr}`);
+      });*/
+      console.log("Proof generated successfully");
+      console.log("Proof length:", stdout.length);
+      return stdout;
+}
+
+function logBoth(message:string) {
+  console.log(message);
+  fs.appendFileSync(LOG_FILE, message + "\n");
+}
+
+if ( !GITHUB_TOKEN) {
+  logBoth("GITHUB_TOKEN not set in .env");
+  process.exit(1);
+}
+
+let apiRequestCount = 0;
+
+async function getReposWithCommitsByUser(username:string) {
+  const perPage = 100;
+  let page = 1;
+  const repos = new Map();
+  let hasMore = true;
+
+  while (hasMore && page <= 10 && repos.size < REPO_LIMIT) {
+    // limit to 1000 results for safety
+    const url = `https://api.github.com/search/commits?q=author:${username}&per_page=${perPage}&page=${page}`;
+    apiRequestCount++;
+    const res = await fetch(url, {
+      headers: {
+        Accept: "application/vnd.github.cloak-preview", // required for commit search
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    });
+    if (!res.ok) {
+      console.error("GitHub API error:", res.status, await res.text());
+      break;
+    }
+    const data = await res.json();
+    if (!data.items || data.items.length === 0) break;
+    for (const item of data.items) {
+      const repo = item.repository;
+      repos.set(repo.id, repo.name);
+      if (repos.size >= REPO_LIMIT) break;
+    }
+    hasMore = data.items.length === perPage && repos.size < REPO_LIMIT;
+    page++;
+  }
+  return repos;
+}
+
+const prover = process.env.VITE_PROVER_ADDRESS ; 
+const verifier = process.env.VITE_VERIFIER_ADDRESS ; 
+
+//@ts-ignore
+async function callProver(webProof:string) {
+  console.log("Calling prover");
+  
+  const vlayer = createVlayerClient();
+  const config = getConfig(); //also in _deploy.ts
+  const { chain, _ethClient, _account, _proverUrl, _confirmations, _notaryUrl } =
+    createContext(config);
+  
+  console.log("⏳ Proving...");
+  const hash = await vlayer.prove({
+    address: prover,
+    functionName: "main",
+    proverAbi: proverSpec.abi,
+    args: [
+      {
+        webProofJson: webProof,//.toString(),
+      },
+    ],
+    chainId: chain.id,
+    gasLimit: config.gasLimit,
+  });
+  const result = await vlayer.waitForProvingResult({ hash });
+  const [_proof, _avgPrice] = result;
+  console.log("✅ Proof generated");
+}
+
+async function getCommitCountForRepo(owner:string, repo:string, username:string) {
+  apiRequestCount++;
+  const url = `https://api.github.com/repos/${owner}/${repo}/commits?author=${username}&per_page=1`;
+  const res = await fetch(url, {
+    headers: {
+      Authorization: `token ${GITHUB_TOKEN}`,
+    },
+  });
+  if (!res.ok) {
+    console.error(
+      `Error fetching commits for ${owner}/${repo}:`,
+      res.status,
+      await res.text()
+    );
+    return 0;
+  }
+  const webProof = await fetchProof(url); //let's make them in parallel
+  callProver(webProof);
+  const link = res.headers.get("link");
+  if (link) {
+    // Parse the last page number from the link header
+    const match = link.match(/&page=(\d+)>; rel="last"/);
+    if (match) {
+      return parseInt(match[1], 10);
+    }
+  }
+  // If no link header, check the number of items returned
+  const data = await res.json();
+  return data.length;
+}
+
+const queryGithub = async (username:string) => {
+(async () => {
+  const repos = await getReposWithCommitsByUser(username);
+  logBoth("Repos with commits by " + username + ":");
+  // Sort repos by name alphabetically
+  const sortedRepos = Array.from(repos.entries()).sort((a, b) =>
+    a[1].localeCompare(b[1])
+  );
+  for (const [id, name] of sortedRepos) {
+    // Get owner from repo API (need to fetch full repo info)
+    const repoUrl = `https://api.github.com/repositories/${id}`;
+    apiRequestCount++;
+    const repoRes = await fetch(repoUrl, {
+      headers: { Authorization: `token ${GITHUB_TOKEN}` },
+    });
+    if (!repoRes.ok) {
+      logBoth(
+        `Error fetching repo info for ID ${id}, Name ${name}: HTTP ${repoRes.status}`
+      );
+      continue;
+    }
+
+    const repoInfo = await repoRes.json();
+    const owner = repoInfo.owner.login;
+    const commitCount = await getCommitCountForRepo(owner, name, username);
+
+    // Get stars, forks, and views
+    // For views, need to use traffic API
+    let stars = repoInfo.stargazers_count;
+    let forks = repoInfo.forks_count;
+    let views = null;
+    try {
+      const viewsUrl = `https://api.github.com/repos/${owner}/${name}/traffic/views`;
+      apiRequestCount++;
+      const viewsRes = await fetch(viewsUrl, {
+        headers: { Authorization: `token ${GITHUB_TOKEN}` },
+      });
+      if (viewsRes.ok) {
+        const viewsData = await viewsRes.json();
+        views = viewsData.count;
+      }
+    } catch (e) {
+      // ignore errors for views
+    }
+
+    logBoth(
+      `ID: ${id}, Name: ${name}, Commits by ${username}: ${commitCount}, Stars: ${stars}, Forks: ${forks}, Views: ${
+        views !== null ? views : "N/A"
+      }`
+    );
+  }
+  logBoth(`Total API requests made: ${apiRequestCount}`);
+})();
+}
+
+//===========================
 // Start server
 const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
