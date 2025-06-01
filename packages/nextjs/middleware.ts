@@ -10,10 +10,10 @@ export async function middleware(request: NextRequest) {
   const isProtectedRoute = protectedRoutes.some(route => pathname.startsWith(route));
 
   // For protected routes, check authentication via API
-  if (isProtectedRoute) {
+  /*if (isProtectedRoute) {
     try {
       // Check if user is authenticated by calling the auth API
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://ethhackback.someng.de';
       const response = await fetch(`${apiUrl}/auth/user`, {
         headers: {
           cookie: request.headers.get('cookie') || '',
@@ -30,7 +30,7 @@ export async function middleware(request: NextRequest) {
       console.error('Middleware auth check failed:', error);
       return NextResponse.redirect(new URL("/landing", request.url));
     }
-  }
+  }*/
 
   return NextResponse.next();
 }
