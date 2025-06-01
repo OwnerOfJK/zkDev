@@ -1,15 +1,13 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 import passport from 'passport';
 import { Strategy as GitHubStrategy } from 'passport-github2';
+import { Strategy as GitLabStrategy } from 'passport-gitlab2';
 import session from 'express-session';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { exec } from 'child_process';
-import { promisify } from 'util';
+import { generateGitHubProof } from './github';
 
 dotenv.config();
-
-const execAsync = promisify(exec);
 
 // Extend Express Request type to include user
 declare global {
@@ -20,7 +18,7 @@ declare global {
       provider: string;
       accessToken: string;
       photos?: { value: string }[];
-      [key: string]: any;
+      [key: string]: unknown;
     }
   }
 }
@@ -66,7 +64,25 @@ passport.use(new GitHubStrategy({
     callbackURL: process.env.GITHUB_CALLBACK_URL || 'http://localhost:4000/auth/github/callback'
   },
   (accessToken: string, _refreshToken: string, profile: any, done: any) => {
-    console.log(accessToken, profile);
+    //console.log(accessToken, profile);
+    // Store the access token in the user object
+    const user = {
+      ...profile,
+      accessToken
+    };
+    process.nextTick(() => {
+      return done(null, user);
+    });
+  }
+));
+
+// GitLab Strategy configuration
+passport.use(new GitLabStrategy({
+    clientID: process.env.GITLAB_CLIENT_ID || '',
+    clientSecret: process.env.GITLAB_CLIENT_SECRET || '',
+    callbackURL: process.env.GITLAB_CALLBACK_URL || 'http://localhost:4000/auth/gitlab/callback'
+  },
+  (accessToken: string, _refreshToken: string, profile: any, done: any) => {
     // Store the access token in the user object
     const user = {
       ...profile,
@@ -94,9 +110,25 @@ app.get('/auth/github',
 app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/auth/github/error' }),
   (_req: Request, res: Response) => {
-    res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard`);
+    res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/account`);
   }
 );
+
+// GitLab auth routes
+app.get('/auth/gitlab',
+  passport.authenticate('gitlab', { scope: ['read_user'] })
+);
+
+app.get('/auth/gitlab/callback',
+  passport.authenticate('gitlab', { failureRedirect: '/auth/gitlab/error' }),
+  (_req: Request, res: Response) => {
+    res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/account`);
+  }
+);
+
+app.get('/auth/gitlab/error', (_req: Request, res: Response) => {
+  res.status(400).json({ error: 'Error logging in via GitLab' });
+});
 
 // Get user data
 app.get('/auth/user', ensureAuthenticated, (req: Request, res: Response): void => {
@@ -165,6 +197,110 @@ interface GitHubSearchResponse<T> {
   incomplete_results: boolean;
   items: T[];
 }
+
+interface GitHubLanguage {
+  [key: string]: number;
+}
+
+interface GitHubStats {
+  totalAccounts: number;
+  totalRepos: number;
+  totalCommits: number;
+  totalStars: number;
+  totalForks: number;
+  topLanguages: Array<{
+    name: string;
+    count: number;
+  }>;
+}
+
+// Helper function to get language stats for a repository
+async function getRepositoryLanguages(owner: string, repo: string, accessToken: string): Promise<GitHubLanguage> {
+  const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/languages`, {
+    headers: {
+      Authorization: `token ${accessToken}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+  });
+  const data = await response.json() as GitHubLanguage;
+  // Filter out the status field if it exists
+  const { status, ...languages } = data;
+  console.log(languages);
+  return languages;
+}
+
+// Get GitHub stats
+app.get('/auth/github/stats', ensureAuthenticated, async (req: Request, res: Response) => {
+  if (!req.user) {
+    res.status(401).json({ error: 'User not found' });
+    return;
+  }
+
+  try {
+    const accessToken = req.user.accessToken;
+    if (!accessToken) {
+      throw new Error('No access token found');
+    }
+
+    const headers = {
+      Authorization: `token ${accessToken}`,
+      Accept: 'application/vnd.github.v3+json',
+    };
+
+    // Fetch user's repositories
+    const reposResponse = await fetch('https://api.github.com/user/repos?sort=updated&per_page=100', {
+      headers,
+    });
+    const repositories = (await reposResponse.json()) as GitHubRepository[];
+
+    // Fetch commits using search API
+    const commitsResponse = await fetch(`https://api.github.com/search/commits?q=author:${req.user.username}&per_page=100`, {
+      headers: {
+        ...headers,
+        Accept: 'application/vnd.github.cloak-preview',
+      },
+    });
+    const commitsData = (await commitsResponse.json()) as GitHubSearchResponse<GitHubCommit>;
+
+    // Calculate total stats
+    const totalRepos = repositories.length;
+    const totalCommits = commitsData.total_count || 0;
+    const totalStars = repositories.reduce((sum, repo) => sum + repo.stargazers_count, 0);
+    const totalForks = repositories.reduce((sum, repo) => sum + repo.forks_count, 0);
+
+    // Get language stats for each repository
+    const languageStats = new Map<string, number>();
+    for (const repo of repositories) {
+      const languages = await getRepositoryLanguages(req.user.username, repo.name, accessToken);
+      for (const [lang, bytes] of Object.entries(languages)) {
+        languageStats.set(lang, (languageStats.get(lang) || 0) + bytes);
+      }
+    }
+
+    // Convert language stats to array and sort by count
+    const topLanguages = Array.from(languageStats.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5); // Get top 5 languages
+
+    const stats: GitHubStats = {
+      totalAccounts: 1, // For now, we only support one account
+      totalRepos,
+      totalCommits,
+      totalStars,
+      totalForks,
+      topLanguages,
+    };
+
+    res.json(stats);
+  } catch (error) {
+    console.error('Error fetching GitHub stats:', error);
+    res.status(500).json({ 
+      error: 'Failed to fetch GitHub stats',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    });
+  }
+});
 
 // Get GitHub activity
 app.get('/auth/github/activity', ensureAuthenticated, async (req: Request, res: Response) => {
@@ -343,52 +479,38 @@ app.get("/api/github/proof", ensureAuthenticated, async (req: Request, res: Resp
       hasAccessToken: !!user.accessToken 
     });
 
-    const username = user.username;
-    const githubUrl = `https://api.github.com/search/commits?q=author:${username}&per_page=1`;
+    const { proof,  } = await generateGitHubProof(user.username, user.accessToken);
     
-    // First, let's fetch and log the GitHub response
-    console.log("Fetching GitHub data from:", githubUrl);
-    const githubResponse = await fetch(githubUrl, {
-      headers: {
-        Authorization: `token ${user.accessToken}`,
-        Accept: "application/vnd.github.cloak-preview",
-      },
-    });
-    
-    const githubData = await githubResponse.json();
-    console.log("GitHub API Response:", JSON.stringify(githubData, null, 2));
-    console.log("Response size:", JSON.stringify(githubData).length, "bytes");
-
-    // Now generate the proof with the same URL
-    const command = `vlayer web-proof-fetch \
-      --notary "https://test-notary.vlayer.xyz" \
-      --url "${githubUrl}" \
-      -H "Authorization: token ${user.accessToken}" \
-      -H "Accept: application/vnd.github.cloak-preview"`;
-
-    console.log("Executing command:", command);
-
-    const { stdout, stderr } = await execAsync(command);
-
-    if (stderr) {
-      console.error("vlayer error output:", stderr);
-      res.status(500).json({ error: "Failed to generate proof", details: stderr });
-      return;
-    }
-
-    console.log("Proof generated successfully");
-    console.log("Proof length:", stdout.length);
-    
-    // Return both the proof and the GitHub data for debugging
-    res.json({ 
-      proof: stdout,
-      githubData: githubData
-    });
-    console.log(githubData);
+    // Return only the proof
+    res.json({ proof });
   } catch (error) {
     console.error("Detailed error in web proof generation:", error);
     res.status(500).json({ 
       error: "Failed to generate proof", 
+      details: error instanceof Error ? error.message : "Unknown error"
+    });
+  }
+});
+
+// Add new endpoint for calling the prover
+app.post("/api/github/prove", ensureAuthenticated, async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { webProof } = req.body;
+    
+    if (!webProof) {
+      res.status(400).json({ error: "No web proof provided" });
+      return;
+    }
+
+    // Forward the proof to the frontend for processing
+    res.json({ 
+      success: true, 
+      message: "Proof received, please process it on the frontend using the vlayer SDK"
+    });
+  } catch (error) {
+    console.error("Error in prover call:", error);
+    res.status(500).json({ 
+      error: "Failed to process proof", 
       details: error instanceof Error ? error.message : "Unknown error"
     });
   }

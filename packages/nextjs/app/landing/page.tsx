@@ -1,9 +1,14 @@
 "use client";
 
 import type { NextPage } from "next";
-import { GitHubLoginButton } from "~~/components/GithubLoginButton";
+import { useRouter } from "next/navigation";
 
 const Landing: NextPage = () => {
+  const router = useRouter();
+
+  const handleGetStarted = () => {
+    router.push('/profile');
+  };
   return (
     <>
       {/* Video Background */}
@@ -18,8 +23,13 @@ const Landing: NextPage = () => {
         <div className="text-center px-5">
           <h1 className="text-6xl font-bold mb-4 text-white">zkDev</h1>
           <p className="text-xl text-gray-200 mb-8">Your developer profile. Private and verified.</p>
-          <div>
-            <GitHubLoginButton />
+          <div className="flex justify-center">
+            <button
+              onClick={handleGetStarted}
+              className="btn btn-primary"
+            >
+              Get Started
+            </button>
           </div>
         </div>
       </div>

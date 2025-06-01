@@ -88,8 +88,15 @@ export const Leaderboard = () => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 h-10 w-10">
-                      <Image className="h-10 w-10 rounded-full" src={entry.avatar_url} alt={entry.username} />
-                    </div>
+                    <Image
+                        className="rounded-full"
+                        src={entry.avatar_url}
+                        alt={entry.username}
+                        width={40}
+                        height={40}
+                        sizes="40px"
+                      />                    
+                      </div>
                     <div className="ml-4">
                       <div className="text-sm font-medium text-base-content">
                         {entry.username}
