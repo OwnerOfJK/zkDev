@@ -70,3 +70,964 @@ ID: 134239498, Name: Udacity-Front-End-Course, Commits by mrizhakov: 3, Stars: 0
 ID: 858767764, Name: webserv, Commits by mrizhakov: 127, Stars: 2, Forks: 1, Views: 5
 ID: 764882045, Name: Whitelist-Dapp, Commits by mrizhakov: 1, Stars: 0, Forks: 0, Views: 0
 Total API requests made: 122
+Repos with commits by mrizhakov:
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 10
+Repos with commits by mrizhakov:
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 10
+Repos with commits by mrizhakov:
+API response (repoInfo for mrizhakov/bigInt): {
+  "id": 958102494,
+  "node_id": "R_kgDOORt73g",
+  "name": "bigInt",
+  "full_name": "mrizhakov/bigInt",
+  "private": false,
+  "owner": {
+    "login": "mrizhakov",
+    "id": 32631465,
+    "node_id": "MDQ6VXNlcjMyNjMxNDY1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32631465?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mrizhakov",
+    "html_url": "https://github.com/mrizhakov",
+    "followers_url": "https://api.github.com/users/mrizhakov/followers",
+    "following_url": "https://api.github.com/users/mrizhakov/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mrizhakov/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mrizhakov/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mrizhakov/subscriptions",
+    "organizations_url": "https://api.github.com/users/mrizhakov/orgs",
+    "repos_url": "https://api.github.com/users/mrizhakov/repos",
+    "events_url": "https://api.github.com/users/mrizhakov/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mrizhakov/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/mrizhakov/bigInt",
+  "description": null,
+  "fork": false,
+  "url": "https://api.github.com/repos/mrizhakov/bigInt",
+  "forks_url": "https://api.github.com/repos/mrizhakov/bigInt/forks",
+  "keys_url": "https://api.github.com/repos/mrizhakov/bigInt/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/mrizhakov/bigInt/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/mrizhakov/bigInt/teams",
+  "hooks_url": "https://api.github.com/repos/mrizhakov/bigInt/hooks",
+  "issue_events_url": "https://api.github.com/repos/mrizhakov/bigInt/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/mrizhakov/bigInt/events",
+  "assignees_url": "https://api.github.com/repos/mrizhakov/bigInt/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/mrizhakov/bigInt/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/mrizhakov/bigInt/tags",
+  "blobs_url": "https://api.github.com/repos/mrizhakov/bigInt/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/mrizhakov/bigInt/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/mrizhakov/bigInt/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/mrizhakov/bigInt/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/mrizhakov/bigInt/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/mrizhakov/bigInt/languages",
+  "stargazers_url": "https://api.github.com/repos/mrizhakov/bigInt/stargazers",
+  "contributors_url": "https://api.github.com/repos/mrizhakov/bigInt/contributors",
+  "subscribers_url": "https://api.github.com/repos/mrizhakov/bigInt/subscribers",
+  "subscription_url": "https://api.github.com/repos/mrizhakov/bigInt/subscription",
+  "commits_url": "https://api.github.com/repos/mrizhakov/bigInt/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/mrizhakov/bigInt/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/mrizhakov/bigInt/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/mrizhakov/bigInt/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/mrizhakov/bigInt/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/mrizhakov/bigInt/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/mrizhakov/bigInt/merges",
+  "archive_url": "https://api.github.com/repos/mrizhakov/bigInt/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/mrizhakov/bigInt/downloads",
+  "issues_url": "https://api.github.com/repos/mrizhakov/bigInt/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/mrizhakov/bigInt/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/mrizhakov/bigInt/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/mrizhakov/bigInt/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/mrizhakov/bigInt/labels{/name}",
+  "releases_url": "https://api.github.com/repos/mrizhakov/bigInt/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/mrizhakov/bigInt/deployments",
+  "created_at": "2025-03-31T16:41:41Z",
+  "updated_at": "2025-04-03T19:44:44Z",
+  "pushed_at": "2025-04-03T19:44:40Z",
+  "git_url": "git://github.com/mrizhakov/bigInt.git",
+  "ssh_url": "git@github.com:mrizhakov/bigInt.git",
+  "clone_url": "https://github.com/mrizhakov/bigInt.git",
+  "svn_url": "https://github.com/mrizhakov/bigInt",
+  "homepage": null,
+  "size": 10,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "language": "C++",
+  "has_issues": true,
+  "has_projects": true,
+  "has_downloads": true,
+  "has_wiki": true,
+  "has_pages": false,
+  "has_discussions": false,
+  "forks_count": 0,
+  "mirror_url": null,
+  "archived": false,
+  "disabled": false,
+  "open_issues_count": 0,
+  "license": null,
+  "allow_forking": true,
+  "is_template": false,
+  "web_commit_signoff_required": false,
+  "topics": [],
+  "visibility": "public",
+  "forks": 0,
+  "open_issues": 0,
+  "watchers": 0,
+  "default_branch": "main",
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "push": true,
+    "triage": true,
+    "pull": true
+  },
+  "temp_clone_token": "",
+  "allow_squash_merge": true,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "allow_auto_merge": false,
+  "delete_branch_on_merge": false,
+  "allow_update_branch": false,
+  "use_squash_pr_title_as_default": false,
+  "squash_merge_commit_message": "COMMIT_MESSAGES",
+  "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+  "merge_commit_message": "PR_TITLE",
+  "merge_commit_title": "MERGE_MESSAGE",
+  "security_and_analysis": {
+    "secret_scanning": {
+      "status": "enabled"
+    },
+    "secret_scanning_push_protection": {
+      "status": "enabled"
+    },
+    "dependabot_security_updates": {
+      "status": "disabled"
+    },
+    "secret_scanning_non_provider_patterns": {
+      "status": "disabled"
+    },
+    "secret_scanning_validity_checks": {
+      "status": "disabled"
+    }
+  },
+  "network_count": 0,
+  "subscribers_count": 1
+}
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+API response (repoInfo for mrizhakov/fdf): {
+  "id": 666373068,
+  "node_id": "R_kgDOJ7gLzA",
+  "name": "fdf",
+  "full_name": "mrizhakov/fdf",
+  "private": false,
+  "owner": {
+    "login": "mrizhakov",
+    "id": 32631465,
+    "node_id": "MDQ6VXNlcjMyNjMxNDY1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32631465?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mrizhakov",
+    "html_url": "https://github.com/mrizhakov",
+    "followers_url": "https://api.github.com/users/mrizhakov/followers",
+    "following_url": "https://api.github.com/users/mrizhakov/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mrizhakov/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mrizhakov/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mrizhakov/subscriptions",
+    "organizations_url": "https://api.github.com/users/mrizhakov/orgs",
+    "repos_url": "https://api.github.com/users/mrizhakov/repos",
+    "events_url": "https://api.github.com/users/mrizhakov/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mrizhakov/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/mrizhakov/fdf",
+  "description": null,
+  "fork": false,
+  "url": "https://api.github.com/repos/mrizhakov/fdf",
+  "forks_url": "https://api.github.com/repos/mrizhakov/fdf/forks",
+  "keys_url": "https://api.github.com/repos/mrizhakov/fdf/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/mrizhakov/fdf/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/mrizhakov/fdf/teams",
+  "hooks_url": "https://api.github.com/repos/mrizhakov/fdf/hooks",
+  "issue_events_url": "https://api.github.com/repos/mrizhakov/fdf/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/mrizhakov/fdf/events",
+  "assignees_url": "https://api.github.com/repos/mrizhakov/fdf/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/mrizhakov/fdf/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/mrizhakov/fdf/tags",
+  "blobs_url": "https://api.github.com/repos/mrizhakov/fdf/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/mrizhakov/fdf/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/mrizhakov/fdf/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/mrizhakov/fdf/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/mrizhakov/fdf/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/mrizhakov/fdf/languages",
+  "stargazers_url": "https://api.github.com/repos/mrizhakov/fdf/stargazers",
+  "contributors_url": "https://api.github.com/repos/mrizhakov/fdf/contributors",
+  "subscribers_url": "https://api.github.com/repos/mrizhakov/fdf/subscribers",
+  "subscription_url": "https://api.github.com/repos/mrizhakov/fdf/subscription",
+  "commits_url": "https://api.github.com/repos/mrizhakov/fdf/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/mrizhakov/fdf/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/mrizhakov/fdf/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/mrizhakov/fdf/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/mrizhakov/fdf/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/mrizhakov/fdf/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/mrizhakov/fdf/merges",
+  "archive_url": "https://api.github.com/repos/mrizhakov/fdf/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/mrizhakov/fdf/downloads",
+  "issues_url": "https://api.github.com/repos/mrizhakov/fdf/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/mrizhakov/fdf/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/mrizhakov/fdf/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/mrizhakov/fdf/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/mrizhakov/fdf/labels{/name}",
+  "releases_url": "https://api.github.com/repos/mrizhakov/fdf/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/mrizhakov/fdf/deployments",
+  "created_at": "2023-07-14T10:56:17Z",
+  "updated_at": "2025-05-31T15:01:14Z",
+  "pushed_at": "2023-07-20T17:58:47Z",
+  "git_url": "git://github.com/mrizhakov/fdf.git",
+  "ssh_url": "git@github.com:mrizhakov/fdf.git",
+  "clone_url": "https://github.com/mrizhakov/fdf.git",
+  "svn_url": "https://github.com/mrizhakov/fdf",
+  "homepage": null,
+  "size": 3134,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "language": "C",
+  "has_issues": true,
+  "has_projects": true,
+  "has_downloads": true,
+  "has_wiki": true,
+  "has_pages": false,
+  "has_discussions": false,
+  "forks_count": 0,
+  "mirror_url": null,
+  "archived": false,
+  "disabled": false,
+  "open_issues_count": 1,
+  "license": null,
+  "allow_forking": true,
+  "is_template": false,
+  "web_commit_signoff_required": false,
+  "topics": [],
+  "visibility": "public",
+  "forks": 0,
+  "open_issues": 1,
+  "watchers": 0,
+  "default_branch": "main",
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "push": true,
+    "triage": true,
+    "pull": true
+  },
+  "temp_clone_token": "",
+  "allow_squash_merge": true,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "allow_auto_merge": false,
+  "delete_branch_on_merge": false,
+  "allow_update_branch": false,
+  "use_squash_pr_title_as_default": false,
+  "squash_merge_commit_message": "COMMIT_MESSAGES",
+  "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+  "merge_commit_message": "PR_TITLE",
+  "merge_commit_title": "MERGE_MESSAGE",
+  "security_and_analysis": {
+    "secret_scanning": {
+      "status": "disabled"
+    },
+    "secret_scanning_push_protection": {
+      "status": "disabled"
+    },
+    "dependabot_security_updates": {
+      "status": "disabled"
+    },
+    "secret_scanning_non_provider_patterns": {
+      "status": "disabled"
+    },
+    "secret_scanning_validity_checks": {
+      "status": "disabled"
+    }
+  },
+  "network_count": 0,
+  "subscribers_count": 1
+}
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+API response (repoInfo for mrizhakov/Starknet-AgentKit): {
+  "id": 884730430,
+  "node_id": "R_kgDONLvqPg",
+  "name": "Starknet-AgentKit",
+  "full_name": "AgentProtocol/Starknet-AgentKit",
+  "private": false,
+  "owner": {
+    "login": "AgentProtocol",
+    "id": 184873292,
+    "node_id": "O_kgDOCwTxTA",
+    "avatar_url": "https://avatars.githubusercontent.com/u/184873292?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/AgentProtocol",
+    "html_url": "https://github.com/AgentProtocol",
+    "followers_url": "https://api.github.com/users/AgentProtocol/followers",
+    "following_url": "https://api.github.com/users/AgentProtocol/following{/other_user}",
+    "gists_url": "https://api.github.com/users/AgentProtocol/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/AgentProtocol/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/AgentProtocol/subscriptions",
+    "organizations_url": "https://api.github.com/users/AgentProtocol/orgs",
+    "repos_url": "https://api.github.com/users/AgentProtocol/repos",
+    "events_url": "https://api.github.com/users/AgentProtocol/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/AgentProtocol/received_events",
+    "type": "Organization",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/AgentProtocol/Starknet-AgentKit",
+  "description": "Toolkit for Building Autonomous AI Agents on Starknet",
+  "fork": false,
+  "url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit",
+  "forks_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/forks",
+  "keys_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/teams",
+  "hooks_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/hooks",
+  "issue_events_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/events",
+  "assignees_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/tags",
+  "blobs_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/languages",
+  "stargazers_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/stargazers",
+  "contributors_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/contributors",
+  "subscribers_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/subscribers",
+  "subscription_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/subscription",
+  "commits_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/merges",
+  "archive_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/downloads",
+  "issues_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/labels{/name}",
+  "releases_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/deployments",
+  "created_at": "2024-11-07T09:35:43Z",
+  "updated_at": "2025-02-25T19:47:11Z",
+  "pushed_at": "2024-11-09T21:50:16Z",
+  "git_url": "git://github.com/AgentProtocol/Starknet-AgentKit.git",
+  "ssh_url": "git@github.com:AgentProtocol/Starknet-AgentKit.git",
+  "clone_url": "https://github.com/AgentProtocol/Starknet-AgentKit.git",
+  "svn_url": "https://github.com/AgentProtocol/Starknet-AgentKit",
+  "homepage": "",
+  "size": 17187,
+  "stargazers_count": 9,
+  "watchers_count": 9,
+  "language": "TypeScript",
+  "has_issues": true,
+  "has_projects": true,
+  "has_downloads": true,
+  "has_wiki": false,
+  "has_pages": false,
+  "has_discussions": false,
+  "forks_count": 1,
+  "mirror_url": null,
+  "archived": false,
+  "disabled": false,
+  "open_issues_count": 0,
+  "license": null,
+  "allow_forking": true,
+  "is_template": true,
+  "web_commit_signoff_required": false,
+  "topics": [],
+  "visibility": "public",
+  "forks": 1,
+  "open_issues": 0,
+  "watchers": 9,
+  "default_branch": "main",
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "push": true,
+    "triage": true,
+    "pull": true
+  },
+  "temp_clone_token": "",
+  "allow_squash_merge": true,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "allow_auto_merge": false,
+  "delete_branch_on_merge": false,
+  "allow_update_branch": false,
+  "use_squash_pr_title_as_default": false,
+  "squash_merge_commit_message": "COMMIT_MESSAGES",
+  "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+  "merge_commit_message": "PR_TITLE",
+  "merge_commit_title": "MERGE_MESSAGE",
+  "custom_properties": {},
+  "organization": {
+    "login": "AgentProtocol",
+    "id": 184873292,
+    "node_id": "O_kgDOCwTxTA",
+    "avatar_url": "https://avatars.githubusercontent.com/u/184873292?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/AgentProtocol",
+    "html_url": "https://github.com/AgentProtocol",
+    "followers_url": "https://api.github.com/users/AgentProtocol/followers",
+    "following_url": "https://api.github.com/users/AgentProtocol/following{/other_user}",
+    "gists_url": "https://api.github.com/users/AgentProtocol/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/AgentProtocol/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/AgentProtocol/subscriptions",
+    "organizations_url": "https://api.github.com/users/AgentProtocol/orgs",
+    "repos_url": "https://api.github.com/users/AgentProtocol/repos",
+    "events_url": "https://api.github.com/users/AgentProtocol/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/AgentProtocol/received_events",
+    "type": "Organization",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "security_and_analysis": {
+    "secret_scanning": {
+      "status": "disabled"
+    },
+    "secret_scanning_push_protection": {
+      "status": "disabled"
+    },
+    "dependabot_security_updates": {
+      "status": "disabled"
+    },
+    "secret_scanning_non_provider_patterns": {
+      "status": "disabled"
+    },
+    "secret_scanning_validity_checks": {
+      "status": "disabled"
+    }
+  },
+  "network_count": 1,
+  "subscribers_count": 0
+}
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 10
+Repos with commits by mrizhakov:
+API response (repoInfo for mrizhakov/bigInt): {
+  "id": 958102494,
+  "node_id": "R_kgDOORt73g",
+  "name": "bigInt",
+  "full_name": "mrizhakov/bigInt",
+  "private": false,
+  "owner": {
+    "login": "mrizhakov",
+    "id": 32631465,
+    "node_id": "MDQ6VXNlcjMyNjMxNDY1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32631465?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mrizhakov",
+    "html_url": "https://github.com/mrizhakov",
+    "followers_url": "https://api.github.com/users/mrizhakov/followers",
+    "following_url": "https://api.github.com/users/mrizhakov/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mrizhakov/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mrizhakov/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mrizhakov/subscriptions",
+    "organizations_url": "https://api.github.com/users/mrizhakov/orgs",
+    "repos_url": "https://api.github.com/users/mrizhakov/repos",
+    "events_url": "https://api.github.com/users/mrizhakov/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mrizhakov/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/mrizhakov/bigInt",
+  "description": null,
+  "fork": false,
+  "url": "https://api.github.com/repos/mrizhakov/bigInt",
+  "forks_url": "https://api.github.com/repos/mrizhakov/bigInt/forks",
+  "keys_url": "https://api.github.com/repos/mrizhakov/bigInt/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/mrizhakov/bigInt/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/mrizhakov/bigInt/teams",
+  "hooks_url": "https://api.github.com/repos/mrizhakov/bigInt/hooks",
+  "issue_events_url": "https://api.github.com/repos/mrizhakov/bigInt/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/mrizhakov/bigInt/events",
+  "assignees_url": "https://api.github.com/repos/mrizhakov/bigInt/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/mrizhakov/bigInt/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/mrizhakov/bigInt/tags",
+  "blobs_url": "https://api.github.com/repos/mrizhakov/bigInt/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/mrizhakov/bigInt/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/mrizhakov/bigInt/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/mrizhakov/bigInt/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/mrizhakov/bigInt/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/mrizhakov/bigInt/languages",
+  "stargazers_url": "https://api.github.com/repos/mrizhakov/bigInt/stargazers",
+  "contributors_url": "https://api.github.com/repos/mrizhakov/bigInt/contributors",
+  "subscribers_url": "https://api.github.com/repos/mrizhakov/bigInt/subscribers",
+  "subscription_url": "https://api.github.com/repos/mrizhakov/bigInt/subscription",
+  "commits_url": "https://api.github.com/repos/mrizhakov/bigInt/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/mrizhakov/bigInt/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/mrizhakov/bigInt/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/mrizhakov/bigInt/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/mrizhakov/bigInt/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/mrizhakov/bigInt/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/mrizhakov/bigInt/merges",
+  "archive_url": "https://api.github.com/repos/mrizhakov/bigInt/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/mrizhakov/bigInt/downloads",
+  "issues_url": "https://api.github.com/repos/mrizhakov/bigInt/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/mrizhakov/bigInt/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/mrizhakov/bigInt/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/mrizhakov/bigInt/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/mrizhakov/bigInt/labels{/name}",
+  "releases_url": "https://api.github.com/repos/mrizhakov/bigInt/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/mrizhakov/bigInt/deployments",
+  "created_at": "2025-03-31T16:41:41Z",
+  "updated_at": "2025-04-03T19:44:44Z",
+  "pushed_at": "2025-04-03T19:44:40Z",
+  "git_url": "git://github.com/mrizhakov/bigInt.git",
+  "ssh_url": "git@github.com:mrizhakov/bigInt.git",
+  "clone_url": "https://github.com/mrizhakov/bigInt.git",
+  "svn_url": "https://github.com/mrizhakov/bigInt",
+  "homepage": null,
+  "size": 10,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "language": "C++",
+  "has_issues": true,
+  "has_projects": true,
+  "has_downloads": true,
+  "has_wiki": true,
+  "has_pages": false,
+  "has_discussions": false,
+  "forks_count": 0,
+  "mirror_url": null,
+  "archived": false,
+  "disabled": false,
+  "open_issues_count": 0,
+  "license": null,
+  "allow_forking": true,
+  "is_template": false,
+  "web_commit_signoff_required": false,
+  "topics": [],
+  "visibility": "public",
+  "forks": 0,
+  "open_issues": 0,
+  "watchers": 0,
+  "default_branch": "main",
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "push": true,
+    "triage": true,
+    "pull": true
+  },
+  "temp_clone_token": "",
+  "allow_squash_merge": true,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "allow_auto_merge": false,
+  "delete_branch_on_merge": false,
+  "allow_update_branch": false,
+  "use_squash_pr_title_as_default": false,
+  "squash_merge_commit_message": "COMMIT_MESSAGES",
+  "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+  "merge_commit_message": "PR_TITLE",
+  "merge_commit_title": "MERGE_MESSAGE",
+  "security_and_analysis": {
+    "secret_scanning": {
+      "status": "enabled"
+    },
+    "secret_scanning_push_protection": {
+      "status": "enabled"
+    },
+    "dependabot_security_updates": {
+      "status": "disabled"
+    },
+    "secret_scanning_non_provider_patterns": {
+      "status": "disabled"
+    },
+    "secret_scanning_validity_checks": {
+      "status": "disabled"
+    }
+  },
+  "network_count": 0,
+  "subscribers_count": 1
+}
+Languages used in mrizhakov/bigInt: {
+  "C++": 10236
+}
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+API response (repoInfo for mrizhakov/fdf): {
+  "id": 666373068,
+  "node_id": "R_kgDOJ7gLzA",
+  "name": "fdf",
+  "full_name": "mrizhakov/fdf",
+  "private": false,
+  "owner": {
+    "login": "mrizhakov",
+    "id": 32631465,
+    "node_id": "MDQ6VXNlcjMyNjMxNDY1",
+    "avatar_url": "https://avatars.githubusercontent.com/u/32631465?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/mrizhakov",
+    "html_url": "https://github.com/mrizhakov",
+    "followers_url": "https://api.github.com/users/mrizhakov/followers",
+    "following_url": "https://api.github.com/users/mrizhakov/following{/other_user}",
+    "gists_url": "https://api.github.com/users/mrizhakov/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/mrizhakov/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/mrizhakov/subscriptions",
+    "organizations_url": "https://api.github.com/users/mrizhakov/orgs",
+    "repos_url": "https://api.github.com/users/mrizhakov/repos",
+    "events_url": "https://api.github.com/users/mrizhakov/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/mrizhakov/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/mrizhakov/fdf",
+  "description": null,
+  "fork": false,
+  "url": "https://api.github.com/repos/mrizhakov/fdf",
+  "forks_url": "https://api.github.com/repos/mrizhakov/fdf/forks",
+  "keys_url": "https://api.github.com/repos/mrizhakov/fdf/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/mrizhakov/fdf/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/mrizhakov/fdf/teams",
+  "hooks_url": "https://api.github.com/repos/mrizhakov/fdf/hooks",
+  "issue_events_url": "https://api.github.com/repos/mrizhakov/fdf/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/mrizhakov/fdf/events",
+  "assignees_url": "https://api.github.com/repos/mrizhakov/fdf/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/mrizhakov/fdf/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/mrizhakov/fdf/tags",
+  "blobs_url": "https://api.github.com/repos/mrizhakov/fdf/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/mrizhakov/fdf/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/mrizhakov/fdf/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/mrizhakov/fdf/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/mrizhakov/fdf/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/mrizhakov/fdf/languages",
+  "stargazers_url": "https://api.github.com/repos/mrizhakov/fdf/stargazers",
+  "contributors_url": "https://api.github.com/repos/mrizhakov/fdf/contributors",
+  "subscribers_url": "https://api.github.com/repos/mrizhakov/fdf/subscribers",
+  "subscription_url": "https://api.github.com/repos/mrizhakov/fdf/subscription",
+  "commits_url": "https://api.github.com/repos/mrizhakov/fdf/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/mrizhakov/fdf/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/mrizhakov/fdf/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/mrizhakov/fdf/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/mrizhakov/fdf/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/mrizhakov/fdf/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/mrizhakov/fdf/merges",
+  "archive_url": "https://api.github.com/repos/mrizhakov/fdf/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/mrizhakov/fdf/downloads",
+  "issues_url": "https://api.github.com/repos/mrizhakov/fdf/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/mrizhakov/fdf/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/mrizhakov/fdf/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/mrizhakov/fdf/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/mrizhakov/fdf/labels{/name}",
+  "releases_url": "https://api.github.com/repos/mrizhakov/fdf/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/mrizhakov/fdf/deployments",
+  "created_at": "2023-07-14T10:56:17Z",
+  "updated_at": "2025-05-31T15:01:14Z",
+  "pushed_at": "2023-07-20T17:58:47Z",
+  "git_url": "git://github.com/mrizhakov/fdf.git",
+  "ssh_url": "git@github.com:mrizhakov/fdf.git",
+  "clone_url": "https://github.com/mrizhakov/fdf.git",
+  "svn_url": "https://github.com/mrizhakov/fdf",
+  "homepage": null,
+  "size": 3134,
+  "stargazers_count": 0,
+  "watchers_count": 0,
+  "language": "C",
+  "has_issues": true,
+  "has_projects": true,
+  "has_downloads": true,
+  "has_wiki": true,
+  "has_pages": false,
+  "has_discussions": false,
+  "forks_count": 0,
+  "mirror_url": null,
+  "archived": false,
+  "disabled": false,
+  "open_issues_count": 1,
+  "license": null,
+  "allow_forking": true,
+  "is_template": false,
+  "web_commit_signoff_required": false,
+  "topics": [],
+  "visibility": "public",
+  "forks": 0,
+  "open_issues": 1,
+  "watchers": 0,
+  "default_branch": "main",
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "push": true,
+    "triage": true,
+    "pull": true
+  },
+  "temp_clone_token": "",
+  "allow_squash_merge": true,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "allow_auto_merge": false,
+  "delete_branch_on_merge": false,
+  "allow_update_branch": false,
+  "use_squash_pr_title_as_default": false,
+  "squash_merge_commit_message": "COMMIT_MESSAGES",
+  "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+  "merge_commit_message": "PR_TITLE",
+  "merge_commit_title": "MERGE_MESSAGE",
+  "security_and_analysis": {
+    "secret_scanning": {
+      "status": "disabled"
+    },
+    "secret_scanning_push_protection": {
+      "status": "disabled"
+    },
+    "dependabot_security_updates": {
+      "status": "disabled"
+    },
+    "secret_scanning_non_provider_patterns": {
+      "status": "disabled"
+    },
+    "secret_scanning_validity_checks": {
+      "status": "disabled"
+    }
+  },
+  "network_count": 0,
+  "subscribers_count": 1
+}
+Languages used in mrizhakov/fdf: {
+  "C": 48075,
+  "Makefile": 7231
+}
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+API response (repoInfo for mrizhakov/Starknet-AgentKit): {
+  "id": 884730430,
+  "node_id": "R_kgDONLvqPg",
+  "name": "Starknet-AgentKit",
+  "full_name": "AgentProtocol/Starknet-AgentKit",
+  "private": false,
+  "owner": {
+    "login": "AgentProtocol",
+    "id": 184873292,
+    "node_id": "O_kgDOCwTxTA",
+    "avatar_url": "https://avatars.githubusercontent.com/u/184873292?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/AgentProtocol",
+    "html_url": "https://github.com/AgentProtocol",
+    "followers_url": "https://api.github.com/users/AgentProtocol/followers",
+    "following_url": "https://api.github.com/users/AgentProtocol/following{/other_user}",
+    "gists_url": "https://api.github.com/users/AgentProtocol/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/AgentProtocol/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/AgentProtocol/subscriptions",
+    "organizations_url": "https://api.github.com/users/AgentProtocol/orgs",
+    "repos_url": "https://api.github.com/users/AgentProtocol/repos",
+    "events_url": "https://api.github.com/users/AgentProtocol/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/AgentProtocol/received_events",
+    "type": "Organization",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/AgentProtocol/Starknet-AgentKit",
+  "description": "Toolkit for Building Autonomous AI Agents on Starknet",
+  "fork": false,
+  "url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit",
+  "forks_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/forks",
+  "keys_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/keys{/key_id}",
+  "collaborators_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/collaborators{/collaborator}",
+  "teams_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/teams",
+  "hooks_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/hooks",
+  "issue_events_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/issues/events{/number}",
+  "events_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/events",
+  "assignees_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/assignees{/user}",
+  "branches_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/branches{/branch}",
+  "tags_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/tags",
+  "blobs_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/blobs{/sha}",
+  "git_tags_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/tags{/sha}",
+  "git_refs_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/refs{/sha}",
+  "trees_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/trees{/sha}",
+  "statuses_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/statuses/{sha}",
+  "languages_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/languages",
+  "stargazers_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/stargazers",
+  "contributors_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/contributors",
+  "subscribers_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/subscribers",
+  "subscription_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/subscription",
+  "commits_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/commits{/sha}",
+  "git_commits_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/git/commits{/sha}",
+  "comments_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/comments{/number}",
+  "issue_comment_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/issues/comments{/number}",
+  "contents_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/contents/{+path}",
+  "compare_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/compare/{base}...{head}",
+  "merges_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/merges",
+  "archive_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/{archive_format}{/ref}",
+  "downloads_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/downloads",
+  "issues_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/issues{/number}",
+  "pulls_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/pulls{/number}",
+  "milestones_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/milestones{/number}",
+  "notifications_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/notifications{?since,all,participating}",
+  "labels_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/labels{/name}",
+  "releases_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/releases{/id}",
+  "deployments_url": "https://api.github.com/repos/AgentProtocol/Starknet-AgentKit/deployments",
+  "created_at": "2024-11-07T09:35:43Z",
+  "updated_at": "2025-02-25T19:47:11Z",
+  "pushed_at": "2024-11-09T21:50:16Z",
+  "git_url": "git://github.com/AgentProtocol/Starknet-AgentKit.git",
+  "ssh_url": "git@github.com:AgentProtocol/Starknet-AgentKit.git",
+  "clone_url": "https://github.com/AgentProtocol/Starknet-AgentKit.git",
+  "svn_url": "https://github.com/AgentProtocol/Starknet-AgentKit",
+  "homepage": "",
+  "size": 17187,
+  "stargazers_count": 9,
+  "watchers_count": 9,
+  "language": "TypeScript",
+  "has_issues": true,
+  "has_projects": true,
+  "has_downloads": true,
+  "has_wiki": false,
+  "has_pages": false,
+  "has_discussions": false,
+  "forks_count": 1,
+  "mirror_url": null,
+  "archived": false,
+  "disabled": false,
+  "open_issues_count": 0,
+  "license": null,
+  "allow_forking": true,
+  "is_template": true,
+  "web_commit_signoff_required": false,
+  "topics": [],
+  "visibility": "public",
+  "forks": 1,
+  "open_issues": 0,
+  "watchers": 9,
+  "default_branch": "main",
+  "permissions": {
+    "admin": true,
+    "maintain": true,
+    "push": true,
+    "triage": true,
+    "pull": true
+  },
+  "temp_clone_token": "",
+  "allow_squash_merge": true,
+  "allow_merge_commit": true,
+  "allow_rebase_merge": true,
+  "allow_auto_merge": false,
+  "delete_branch_on_merge": false,
+  "allow_update_branch": false,
+  "use_squash_pr_title_as_default": false,
+  "squash_merge_commit_message": "COMMIT_MESSAGES",
+  "squash_merge_commit_title": "COMMIT_OR_PR_TITLE",
+  "merge_commit_message": "PR_TITLE",
+  "merge_commit_title": "MERGE_MESSAGE",
+  "custom_properties": {},
+  "organization": {
+    "login": "AgentProtocol",
+    "id": 184873292,
+    "node_id": "O_kgDOCwTxTA",
+    "avatar_url": "https://avatars.githubusercontent.com/u/184873292?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/AgentProtocol",
+    "html_url": "https://github.com/AgentProtocol",
+    "followers_url": "https://api.github.com/users/AgentProtocol/followers",
+    "following_url": "https://api.github.com/users/AgentProtocol/following{/other_user}",
+    "gists_url": "https://api.github.com/users/AgentProtocol/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/AgentProtocol/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/AgentProtocol/subscriptions",
+    "organizations_url": "https://api.github.com/users/AgentProtocol/orgs",
+    "repos_url": "https://api.github.com/users/AgentProtocol/repos",
+    "events_url": "https://api.github.com/users/AgentProtocol/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/AgentProtocol/received_events",
+    "type": "Organization",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "security_and_analysis": {
+    "secret_scanning": {
+      "status": "disabled"
+    },
+    "secret_scanning_push_protection": {
+      "status": "disabled"
+    },
+    "dependabot_security_updates": {
+      "status": "disabled"
+    },
+    "secret_scanning_non_provider_patterns": {
+      "status": "disabled"
+    },
+    "secret_scanning_validity_checks": {
+      "status": "disabled"
+    }
+  },
+  "network_count": 1,
+  "subscribers_count": 0
+}
+Languages used in AgentProtocol/Starknet-AgentKit: {
+  "TypeScript": 30958
+}
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 13
+Repos with commits by mrizhakov:
+Languages used in mrizhakov/bigInt: undefined
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+Languages used in mrizhakov/fdf: undefined
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+Languages used in AgentProtocol/Starknet-AgentKit: undefined
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 10
+Repos with commits by mrizhakov:
+Languages used in mrizhakov/bigInt: {
+  "C++": 10236
+}
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+Languages used in mrizhakov/fdf: {
+  "C": 48075,
+  "Makefile": 7231
+}
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+Languages used in AgentProtocol/Starknet-AgentKit: {
+  "TypeScript": 30958
+}
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 13
+Repos with commits by mrizhakov:
+Languages used in mrizhakov/bigInt: {
+  "C++": 10236
+}
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+Languages used in mrizhakov/fdf: {
+  "C": 48075,
+  "Makefile": 7231
+}
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+Languages used in AgentProtocol/Starknet-AgentKit: {
+  "TypeScript": 30958
+}
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 13
+Repos with commits by mrizhakov:
+Languages used in mrizhakov/bigInt: {
+  "C++": 10236
+}
+ID: 958102494, Name: bigInt, Commits by mrizhakov: 6, Stars: 0, Forks: 0, Views: 2
+Languages used in mrizhakov/fdf: {
+  "C": 48075,
+  "Makefile": 7231
+}
+ID: 666373068, Name: fdf, Commits by mrizhakov: 4, Stars: 0, Forks: 0, Views: 6
+Languages used in AgentProtocol/Starknet-AgentKit: {
+  "TypeScript": 30958
+}
+ID: 884730430, Name: Starknet-AgentKit, Commits by mrizhakov: 1, Stars: 9, Forks: 1, Views: 1
+Total API requests made: 13

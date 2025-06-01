@@ -146,5 +146,47 @@ async function calculateAllContributions(username) {
   console.log("======================================\n");
 }
 
+// Helper to extract metrics for Solidity
+async function extractRepoMetricsForSolidity(username) {
+  const repos = await getReposWithUserCommits(username);
+  const metrics = [];
+  for (const repo of repos.slice(0, REPO_LIMIT)) {
+    const [owner, name] = repo.split("/");
+    const { stars, forks, default_branch } = await getRepoMetadata(owner, name);
+    const contributors = await getContributorsCount(owner, name);
+    const commits = await getCommitsByUser(
+      owner,
+      name,
+      default_branch,
+      username
+    );
+    let totalAdditions = 0;
+    let productionCommits = 0;
+    for (const commit of commits) {
+      const stats = await getCommitStats(owner, name, commit.sha);
+      totalAdditions += stats.additions;
+      if (commit.files) {
+        const touchesProduction = commit.files.some(
+          (file) =>
+            file.filename.startsWith("src/") || file.filename.startsWith("lib/")
+        );
+        if (touchesProduction) productionCommits++;
+      }
+    }
+    metrics.push({
+      stars,
+      forks,
+      contributors,
+      commitsByUser: commits.length,
+      totalAdditions,
+      productionCommits,
+    });
+  }
+  console.log("\nSolidity input array for this contributor:");
+  console.log(JSON.stringify(metrics, null, 2));
+  return metrics;
+}
+
 // Example usage:
 calculateAllContributions("mrizhakov");
+extractRepoMetricsForSolidity("mrizhakov");

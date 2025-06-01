@@ -103,6 +103,30 @@ async function getCommitCountForRepo(owner, repo, username) {
     }
     const repoInfo = await repoRes.json();
     const owner = repoInfo.owner.login;
+    // Fetch and log language usage
+    try {
+      const langUrl = `https://api.github.com/repos/${owner}/${name}/languages`;
+      apiRequestCount++;
+      const langRes = await fetch(langUrl, {
+        headers: { Authorization: `token ${GITHUB_TOKEN}` },
+      });
+      if (langRes.ok) {
+        const langData = await langRes.json();
+        logBoth(
+          `Languages used in ${owner}/${name}: ${JSON.stringify(
+            langData,
+            null,
+            2
+          )}`
+        );
+      } else {
+        logBoth(
+          `Failed to fetch languages for ${owner}/${name}: HTTP ${langRes.status}`
+        );
+      }
+    } catch (e) {
+      logBoth(`Error fetching languages for ${owner}/${name}: ${e}`);
+    }
     const commitCount = await getCommitCountForRepo(owner, name, GITHUB_USER);
 
     // Get stars, forks, and views
