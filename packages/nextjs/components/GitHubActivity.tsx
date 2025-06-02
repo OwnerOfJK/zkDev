@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { WebProof } from "./WebProof";
 
 interface GitHubActivity {
   commits: Array<{
@@ -117,31 +118,6 @@ export const GitHubActivity = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-6">GitHub Activity</h2>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <div className="bg-base-200 p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold mb-2">Repositories</h3>
-          <p className="text-3xl font-bold">{activity.repositories.length}</p>
-        </div>
-
-        <div className="bg-base-200 p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold mb-2">Commits</h3>
-          <p className="text-3xl font-bold">{activity.commits.length}</p>
-        </div>
-
-        <div className="bg-base-200 p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold mb-2">Pull Requests</h3>
-          <p className="text-3xl font-bold">{activity.pullRequests.length}</p>
-        </div>
-
-        <div className="bg-base-200 p-4 rounded-lg shadow">
-          <h3 className="text-lg font-semibold mb-2">Issues</h3>
-          <p className="text-3xl font-bold">{activity.issues.length}</p>
-        </div>
-      </div>
-
-      {/* Recent Repositories */}
       <div className="bg-base-200 p-6 rounded-lg shadow">
         <h3 className="text-xl font-bold mb-4">Top Repositories by Commits</h3>
         <div className="space-y-4">

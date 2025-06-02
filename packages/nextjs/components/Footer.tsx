@@ -3,9 +3,6 @@ import { hardhat } from "viem/chains";
 import { SwitchTheme } from "~~/components/SwitchTheme";
 import { useTargetNetwork } from "~~/hooks/scaffold-eth/useTargetNetwork";
 
-/**
- * Site footer
- */
 export const Footer = () => {
   const { targetNetwork } = useTargetNetwork();
   const isLocalNetwork = targetNetwork.id === hardhat.id;

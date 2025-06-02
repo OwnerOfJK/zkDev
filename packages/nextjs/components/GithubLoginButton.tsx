@@ -3,7 +3,6 @@
 import React from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
-
 export const GitHubLoginButton: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(false);
 
